@@ -1122,6 +1122,61 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 .pcal-fest-divider { height: 1px; background: rgba(36,38,43,0.12); margin-bottom: 10px; }
 /* body-2xs = 12px Medium */
 .pcal-fest-desc { font-size: 12px; font-weight: 500; color: rgba(25,27,30,0.65); line-height: 1.55; }
+
+/* ━━ WIDGET STATUS CARD — Figma 3518:39802 ━━ */
+.widget-status-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(36,38,43,0.13);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 244px;
+  min-height: 158px;
+  cursor: pointer;
+  animation: fadeDown 0.3s ease both;
+  transition: box-shadow 0.2s;
+}
+.widget-status-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.widget-status-top { display: flex; flex-direction: column; gap: 8px; }
+.widget-status-title {
+  font-family: 'JioType', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+  color: #0c0d10;
+  letter-spacing: 0;
+}
+.widget-status-date-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #0078ad;
+  border-radius: 4px;
+  padding: 4px 6px;
+  align-self: flex-start;
+}
+.widget-status-date-badge span {
+  font-family: 'JioType', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1;
+  white-space: nowrap;
+}
+.widget-status-bullets { display: flex; flex-direction: column; gap: 4px; }
+.widget-status-bullet { display: flex; gap: 4px; align-items: flex-start; }
+.widget-status-bullet img { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+.widget-status-bullet-text {
+  font-family: 'JioType', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0c0d10;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
 .pcal-idate-list { display: flex; flex-direction: column; gap: 8px; }
 .pcal-idate-card {
   border-radius: 14px; border: 1px solid var(--stroke-subtle);
@@ -3480,33 +3535,37 @@ function renderFestivalCard(now) {
 
   // ── Additional festivals: horizontal scroll row ──
   if (upcoming.length > 1) {
-    const ICON_BG = ['#e8e8fc', '#fef7e9', '#e8faf7'];
-    const rowEl   = document.createElement('div');
+    const IC_SUCCESS = 'https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_success_colored.svg';
+    const rowEl = document.createElement('div');
     rowEl.style.cssText = 'display:flex;flex-direction:row;gap:10px;overflow-x:auto;padding-bottom:4px;margin-top:10px;scrollbar-width:none;-webkit-overflow-scrolling:touch';
 
     upcoming.slice(1).forEach((item, i) => {
-      const { dateKey, days, fest, fy, fm, fd } = item;
-      const dt       = new Date(fy, fm - 1, fd);
-      const badgeCls = days === 0 ? 'aaj' : days <= 7 ? 'soon' : 'later';
-      const badgeTxt = days === 0 ? 'Aaj' : days === 1 ? 'Kal' : `${days} din mein`;
-      const dateStr  = `${DAY_SHORT[dt.getDay()]}, ${fd} ${MON_SHORT[fm - 1]}`;
-      const iconBg   = ICON_BG[i % ICON_BG.length];
-      const desc     = fest.desc.length > 80 ? fest.desc.substring(0, 80) + '…' : fest.desc;
+      const { dateKey, fest, fy, fm, fd } = item;
+      const dateStr = `${fd} ${MO_NAMES[fm - 1]} ${fy}`;
+      // Split desc into 2 concise bullets
+      const parts = fest.desc.split(/(?:\.\s+)|(?:!\s+)/).filter(s => s.trim().length > 6);
+      const b1 = (parts[0] || fest.desc).trim().replace(/[.!]+$/, '');
+      const b2 = (parts[1] || parts[0] || fest.desc).trim().replace(/[.!]+$/, '');
 
       const cardEl = document.createElement('div');
-      cardEl.className = 'pcal-fest-card';
-      cardEl.style.cssText = `animation-delay:${(i + 1) * 0.07}s;flex-shrink:0;width:260px`;
+      cardEl.className = 'widget-status-card';
+      cardEl.style.animationDelay = `${(i + 1) * 0.07}s`;
+      cardEl.setAttribute('onclick', `openFestivalDetail('${dateKey}')`);
       cardEl.innerHTML = `
-        <div class="pcal-fest-head" style="align-items:flex-start">
-          <div class="pcal-fest-icon" style="background:${iconBg}">${fest.emoji}</div>
-          <div class="pcal-fest-head-text">
-            <div class="pcal-fest-name">${fest.name}</div>
-            <div class="pcal-fest-date">${dateStr}</div>
-            <div class="pcal-fest-badge ${badgeCls}" style="display:inline-flex;margin-top:6px">${badgeTxt}</div>
+        <div class="widget-status-top">
+          <div class="widget-status-title">${fest.name}</div>
+          <div class="widget-status-date-badge"><span>${dateStr}</span></div>
+        </div>
+        <div class="widget-status-bullets">
+          <div class="widget-status-bullet">
+            <img src="${IC_SUCCESS}" alt="" width="20" height="20">
+            <span class="widget-status-bullet-text">${b1}</span>
+          </div>
+          <div class="widget-status-bullet">
+            <img src="${IC_SUCCESS}" alt="" width="20" height="20">
+            <span class="widget-status-bullet-text">${b2}</span>
           </div>
         </div>
-        <div class="pcal-fest-divider"></div>
-        <div class="pcal-fest-desc">${desc}</div>
       `;
       rowEl.appendChild(cardEl);
     });
