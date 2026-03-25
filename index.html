@@ -211,7 +211,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 }
 
 /* Suggestion chips — appear inline after AI conclusion */
-.chips-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 0; }
+.chips-row { display: flex; flex-wrap: wrap; row-gap: 10px; column-gap: 8px; padding: 4px 0 0; }
 .chip {
   flex-shrink: 0; height: 34px; padding: 0 14px;
   border-radius: 999px; border: 1.5px solid var(--stroke-subtle);
@@ -534,7 +534,6 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 .sticky-footer {
   flex-shrink: 0;
   background: var(--white);
-  border-top: 1px solid var(--stroke-subtle);
   padding: 10px 12px 10px;
 }
 /* Outer pill container */
@@ -1002,39 +1001,29 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 .pcal-bot-row { display: flex; align-items: flex-start; }
 .pcal-bot-content { flex: 1; min-width: 0; }
 .pcal-today-card {
-  background: var(--white); border-radius: 16px;
-  border: 1px solid rgba(36,38,43,0.12);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08); overflow: hidden;
+  background: #f8f8f9; border-radius: 16px; padding: 12px; overflow: hidden;
 }
 .pcal-today-card-hd {
-  background: linear-gradient(135deg, var(--surface-bold) 0%, var(--primary-50) 100%);
-  padding: 14px 16px; display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 6px;
 }
 .pcal-today-card-hd-icon {
-  width: 38px; height: 38px; border-radius: 12px;
-  background: rgba(255,255,255,0.18); flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center; font-size: 18px;
+  width: 40px; height: 40px; border-radius: 999px; flex-shrink: 0;
+  background: #f7ab20;
+  display: flex; align-items: center; justify-content: center;
 }
-.pcal-today-card-hd-title { font-size: 14px; font-weight: 700; color: #fff; }
-.pcal-today-card-hd-date  { font-size: 11px; color: rgba(255,255,255,0.72); margin-top: 2px; }
-.pcal-today-card-body { padding: 12px 14px 14px; }
-.pcal-today-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.pcal-today-field { background: var(--grey-20); border-radius: 10px; padding: 9px 11px; }
-.pcal-today-field-label {
-  font-size: 9px; font-weight: 700; color: var(--text-disabled);
-  text-transform: uppercase; letter-spacing: 0.06em;
-}
-.pcal-today-field-val { font-size: 13px; font-weight: 700; color: var(--text-high); margin-top: 3px; }
-.pcal-today-field.rahu { background: rgba(250,47,64,0.07); grid-column: span 2; }
-.pcal-today-field.rahu .pcal-today-field-label { color: #c0392b; }
-.pcal-today-field.rahu .pcal-today-field-val   { color: #c0392b; }
-.pcal-today-field.fest { background: var(--secondary-20); grid-column: span 2; }
-.pcal-today-field.fest .pcal-today-field-label { color: #8a5c00; }
-.pcal-today-field.fest .pcal-today-field-val   { color: #8a5c00; }
+.pcal-today-card-hd-title { font-family: 'JioType', sans-serif; font-size: 16px; font-weight: 700; color: #0c0d10; line-height: 1.3; }
+.pcal-today-card-hd-date  { display: none; }
+.pcal-today-divider { height: 0.5px; background: rgba(36,38,43,0.12); margin: 12px 0; }
+.pcal-today-rows { display: flex; flex-direction: column; gap: 8px; }
+.pcal-today-row { display: flex; justify-content: space-between; align-items: center; }
+.pcal-today-row-label { font-family: 'JioType', sans-serif; font-size: 16px; font-weight: 400; color: #0c0d10; line-height: 1.3; }
+.pcal-today-row-val   { font-family: 'JioType', sans-serif; font-size: 16px; font-weight: 500; color: #0c0d10; line-height: 1.3; white-space: nowrap; }
+.pcal-today-row.rahu .pcal-today-row-label { color: #c0392b; }
+.pcal-today-row.rahu .pcal-today-row-val   { color: #c0392b; }
 .pcal-intro-text {
   font-size: 16px; font-weight: 400; color: var(--text-high); line-height: 1.3; margin: 0 0 8px;
 }
-.pcal-chips-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 0; }
+.pcal-chips-row { display: flex; flex-wrap: wrap; row-gap: 10px; column-gap: 8px; padding: 4px 0 0; }
 .pcal-chip {
   flex-shrink: 0; height: 34px; padding: 0 14px;
   border-radius: 999px; border: 1.5px solid var(--stroke-subtle);
@@ -1059,38 +1048,26 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 .pcal-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
 .pcal-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
 @keyframes typingPulse { 0%,60%,100% { transform: scale(1); opacity: 0.5; } 30% { transform: scale(1.3); opacity: 1; } }
-.pcal-week-list { display: flex; flex-direction: column; }
+.pcal-week-list { display: flex; flex-direction: column; gap: 16px; padding: 8px 0; }
 .pcal-week-card {
-  border: none; border-bottom: 1px solid var(--stroke-subtle);
-  padding: 12px 14px; display: flex; align-items: center; gap: 12px;
-  background: transparent; animation: fadeDown 0.3s ease both;
+  display: flex; align-items: center; gap: 18px;
+  animation: fadeDown 0.3s ease both;
 }
-.pcal-week-card:last-child { border-bottom: none; }
-.pcal-week-card.today-card { background: transparent; border-bottom-color: var(--stroke-subtle); }
-.pcal-week-card.has-festival { border-left: 3px solid var(--secondary-50); padding-left: 11px; }
-.pcal-week-card.has-purnima  { border-left: 3px solid var(--primary-40);  padding-left: 11px; }
-.pcal-week-card.has-ekadashi { border-left: 3px solid var(--sparkle-50);  padding-left: 11px; }
-.pcal-week-card.has-amavasya { border-left: 3px solid #9b59b6;            padding-left: 11px; }
-.pcal-week-highlight-row { display: flex; align-items: center; gap: 4px; margin-top: 4px; }
-.pcal-week-fest-label  { font-size: 11px; font-weight: 700; color: #8a5c00; }
-.pcal-week-purn-label  { font-size: 11px; font-weight: 700; color: var(--primary-50); }
-.pcal-week-ekad-label  { font-size: 11px; font-weight: 700; color: #0e9e87; }
-.pcal-week-amas-label  { font-size: 11px; font-weight: 700; color: #7d3c98; }
-.pcal-week-card-date { width: 44px; text-align: center; flex-shrink: 0; }
-.pcal-week-card-day  { font-size: 11px; font-weight: 700; color: var(--text-disabled); text-transform: uppercase; }
-.pcal-week-card-num  { font-size: 22px; font-weight: 900; color: var(--text-high); line-height: 1; }
-.pcal-week-phase-emoji { font-size: 14px; margin-top: 3px; line-height: 1; }
-.pcal-week-card.today-card .pcal-week-card-day { color: var(--primary-50); }
+.pcal-week-card.has-festival,
+.pcal-week-card.has-purnima,
+.pcal-week-card.has-ekadashi,
+.pcal-week-card.has-amavasya { background: #fef7e9; padding: 8px; border-radius: 8px; }
+.pcal-week-card-date { width: 32px; flex-shrink: 0; display: flex; flex-direction: column; gap: 2px; align-items: center; justify-content: center; }
+.pcal-week-card-day  { font-family: 'JioType', sans-serif; font-size: 12px; font-weight: 400; color: #191b1e; opacity: 0.65; line-height: 1.3; }
+.pcal-week-card-num  { font-family: 'JioType', sans-serif; font-size: 16px; font-weight: 500; color: #0c0d10; line-height: 1.3; }
+.pcal-week-card.today-card .pcal-week-card-day { opacity: 1; color: var(--primary-50); }
 .pcal-week-card.today-card .pcal-week-card-num { color: var(--primary-50); }
-.pcal-week-divider { width: 1px; height: 40px; background: var(--stroke-subtle); flex-shrink: 0; }
-.pcal-week-info { flex: 1; min-width: 0; }
-.pcal-week-tithi { font-size: 13px; font-weight: 700; color: var(--text-high); }
-.pcal-week-meta  { font-size: 11px; color: var(--text-low); margin-top: 2px; }
-.pcal-week-rahu  { font-size: 10px; color: #c0392b; margin-top: 3px; font-weight: 600; }
-.pcal-week-fest-badge {
-  font-size: 11px; font-weight: 700; color: #8a5c00; background: var(--secondary-20);
-  border: 1px solid rgba(247,171,32,0.3); border-radius: 999px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0;
-}
+.pcal-week-phase-emoji { font-size: 12px; line-height: 1.3; color: #0c0d10; }
+.pcal-week-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pcal-week-tithi { font-family: 'JioType', sans-serif; font-size: 16px; font-weight: 500; color: #0c0d10; line-height: 1.3; }
+.pcal-week-meta  { font-family: 'JioType', sans-serif; font-size: 14px; font-weight: 500; color: #191b1e; opacity: 0.65; line-height: 1.3; }
+.pcal-week-rahu  { font-family: 'JioType', sans-serif; font-size: 14px; font-weight: 400; color: #191b1e; opacity: 0.65; line-height: 1.3; }
+.pcal-week-auspicious { font-family: 'JioType', sans-serif; font-size: 14px; font-weight: 400; color: #0c0d10; line-height: 1.3; white-space: nowrap; }
 /* JDS-compliant festival card — Card spec: radius=16px, border=stroke-subtle, shadow */
 .pcal-fest-list { display: flex; flex-direction: column; gap: 10px; }
 .pcal-fest-card {
@@ -1572,44 +1549,37 @@ html.capture-mode .capture-switcher { display: flex; }
           <div class="section" style="padding-top:16px">
             <div class="pcal-today-card">
               <div class="pcal-today-card-hd">
-                <div class="pcal-today-card-hd-icon">🕉️</div>
-                <div>
-                  <div class="pcal-today-card-hd-title">Aaj ka Panchang</div>
-                  <div class="pcal-today-card-hd-date" id="today-date">—</div>
-                  <div class="pcal-today-card-hd-date" id="today-tithi" style="opacity:0.72">—</div>
+                <div class="pcal-today-card-hd-icon"><img src="https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_biography.svg" width="20" height="20" style="filter:brightness(0) invert(1)"></div>
+                <div class="pcal-today-card-hd-title">Aajka Panchang</div>
+              </div>
+              <div class="pcal-today-divider"></div>
+              <div class="pcal-today-rows">
+                <div class="pcal-today-row">
+                  <span class="pcal-today-row-label">Tithi</span>
+                  <span class="pcal-today-row-val" id="p-tithi">—</span>
+                </div>
+                <div class="pcal-today-row">
+                  <span class="pcal-today-row-label">Nakshatra</span>
+                  <span class="pcal-today-row-val" id="p-nakshatra">—</span>
+                </div>
+                <div class="pcal-today-row">
+                  <span class="pcal-today-row-label">Vara</span>
+                  <span class="pcal-today-row-val" id="p-vara">—</span>
+                </div>
+                <div class="pcal-today-row">
+                  <span class="pcal-today-row-label">Chandra Rashi</span>
+                  <span class="pcal-today-row-val" id="p-moon">—</span>
+                </div>
+                <div class="pcal-today-row">
+                  <span class="pcal-today-row-label">Surya Rashi</span>
+                  <span class="pcal-today-row-val" id="p-sun">—</span>
+                </div>
+                <div class="pcal-today-row">
+                  <span class="pcal-today-row-label">Rahu Kaal</span>
+                  <span class="pcal-today-row-val" id="p-rahukaal">—</span>
                 </div>
               </div>
-              <div class="pcal-today-card-body">
-                <div class="pcal-today-grid">
-                  <div class="pcal-today-field">
-                    <div class="pcal-today-field-label">Nakshatra</div>
-                    <div class="pcal-today-field-val" id="p-nakshatra">—</div>
-                  </div>
-                  <div class="pcal-today-field">
-                    <div class="pcal-today-field-label">Chandra Rashi</div>
-                    <div class="pcal-today-field-val" id="p-moon">—</div>
-                  </div>
-                  <div class="pcal-today-field">
-                    <div class="pcal-today-field-label">Surya Rashi</div>
-                    <div class="pcal-today-field-val" id="p-sun">—</div>
-                  </div>
-                  <div class="pcal-today-field">
-                    <div class="pcal-today-field-label">Vara</div>
-                    <div class="pcal-today-field-val" id="p-vara">—</div>
-                  </div>
-                  <div class="pcal-today-field">
-                    <div class="pcal-today-field-label">Tithi</div>
-                    <div class="pcal-today-field-val" id="p-tithi">—</div>
-                  </div>
-                  <div class="pcal-today-field">
-                    <div class="pcal-today-field-label">⚠️ Rahukaal</div>
-                    <div class="pcal-today-field-val" id="p-rahukaal">—</div>
-                  </div>
-                </div>
-              </div>
-              <div style="padding:0 14px 14px">
-                <button onclick="openPanchangCal()" style="width:100%;height:44px;background:var(--primary-50);color:#fff;border:none;border-radius:999px;font-family:'JioType',sans-serif;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:0.1px;">📅 Panchang Calendar</button>
-              </div>
+              <button onclick="openPanchangCal()" style="width:100%;height:44px;margin-top:12px;background:var(--primary-50);color:#fff;border:none;border-radius:999px;font-family:'JioType',sans-serif;font-size:15px;font-weight:700;cursor:pointer;">📅 Panchang Calendar</button>
             </div>
           </div>
 
@@ -1893,16 +1863,6 @@ html.capture-mode .capture-switcher { display: flex; }
       </div>
 
 
-      <!-- ━━ FLOATING DIYA — visible only on Live Darshan screen ━━ -->
-      <div class="floating-diya" id="floatingDiya">
-        <div class="fdiya-stage" id="fdiyaStage" onclick="lightDiya()">
-          <div class="fdiya-ring"></div>
-          <div class="fdiya-ring-2"></div>
-          <div class="fdiya-glow" id="fdiyaGlow"></div>
-          <img class="fdiya-img" src="https://www.figma.com/api/mcp/asset/1e4f642f-eeb9-4260-9da5-14ebb471885a" alt="diya">
-        </div>
-        <div class="fdiya-label" id="fdiyaLabel">Diya jalao 🙏🏼</div>
-      </div>
 
     </div><!-- /phone -->
   </div>
@@ -1975,8 +1935,6 @@ function switchTab(index, sidebarEl) {
   else sidebarItems[index] && sidebarItems[index].classList.add('active');
   document.getElementById('chatPlaceholder').textContent = placeholders[index];
   document.getElementById('screenContent').scrollTop = 0;
-  // Hide floating diya when leaving darshan screen
-  document.getElementById('floatingDiya').style.display = 'none';
 }
 
 /* ChatInput_Text_Collapsed interactions */
@@ -2049,33 +2007,16 @@ function darshHandleText(text) {
       msgEl.innerHTML = `<div class="pcal-bot-content"><p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:#0c0d10;line-height:1.3;margin:0">Sure. Here are a few temples where you can experience live darshan online.</p></div>`;
       msgs.appendChild(msgEl);
 
-      const liveEl = document.createElement('div');
-      liveEl.style.animation = 'fadeDown 0.32s ease both';
-      liveEl.innerHTML = `
-        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:700;color:var(--text-high);line-height:1.1;display:flex;align-items:center;gap:7px;margin:10px 0 8px">
-          <span style="width:10px;height:10px;border-radius:50%;background:#fa2f40;display:inline-block;flex-shrink:0;box-shadow:0 0 0 3px rgba(250,47,64,0.18)"></span>
-          Currently Live
-        </p>
-        <div class="pcal-chips-row">
-          <button class="pcal-chip" onclick="darshChipTap(this,'shirdi')">Shirdi Sai Baba</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'vaishno')">Maa Vaishno Devi</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'tirupati')">Tirupathi Balaji</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'kashi')">Kashi Vishwanath</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'siddhivinayak')">Siddhivinayak</button>
-        </div>`;
-      msgs.appendChild(liveEl);
-
-      const exploreEl = document.createElement('div');
-      exploreEl.style.animation = 'fadeDown 0.36s ease both';
-      exploreEl.innerHTML = `
-        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:14px 0 8px">A few other temples you can explore.</p>
-        <div class="pcal-chips-row">
-          <button class="pcal-chip" onclick="darshChipTap(this,'meenakshi')">Meenakshi Amman</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'kashi')">Kashi Vishwanath</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'somnath')">Somnath Temple</button>
-          <button class="pcal-chip" onclick="darshChipTap(this,'dwarkadhish')">Dwarkadhish Temple</button>
-        </div>`;
-      msgs.appendChild(exploreEl);
+      appendChipBlock(msgs, '🔴 Abhi kaun sa mandir live dekhnaa chahoge?', row => {
+        [['shirdi','Shirdi Sai Baba'],['vaishno','Maa Vaishno Devi'],['tirupati','Tirupathi Balaji'],['kashi','Kashi Vishwanath'],['siddhivinayak','Siddhivinayak']].forEach(([t,l]) => {
+          const btn = document.createElement('button'); btn.className = 'pcal-chip'; btn.textContent = l; btn.onclick = () => darshChipTap(btn, t); row.appendChild(btn);
+        });
+      }, 0.25);
+      appendChipBlock(msgs, 'Kuch aur temples explore karna chahoge?', row => {
+        [['meenakshi','Meenakshi Amman'],['somnath','Somnath Temple'],['dwarkadhish','Dwarkadhish Temple']].forEach(([t,l]) => {
+          const btn = document.createElement('button'); btn.className = 'pcal-chip'; btn.textContent = l; btn.onclick = () => darshChipTap(btn, t); row.appendChild(btn);
+        });
+      }, 0.3);
       msgs.scrollTop = msgs.scrollHeight;
       return;
     }
@@ -2229,6 +2170,18 @@ const FESTIVALS = {
 // ─── FESTIVAL DETAIL DATA ─────────────────────────────────────
 const FESTIVAL_DETAIL = {
   '2026-03-19': {
+    vidhi: {
+      bestTime: 'Pratah kaal ya Madhyahna — Chaitra Pratipada ki subah puja shubh hai. Gudi ko Surya Udaya ke baad aur Surya Ast se pehle uttaarein.',
+      steps: [
+        { title: 'Tayaari', bullets: ['Ghar ki achhi tarah safaai karein — Lakshmi ka swagat karein', 'Snan karein aur naye ya swachh vastra pahanen', 'Gudi ke liye baans, kalaash, aam-patte aur gulaal tayaar karein'] },
+        { title: 'Sankalp', bullets: ['Shant mann se baithein, haath mein jal lein aur sankalp karein', 'Nav-Samvatsar mein parivar ki sukh-shanti aur samridhi ki praarthana karein'] },
+        { title: 'Gudi Sthapna', bullets: ['Baans par pita vastram, aam ke patte aur kalaash sajaayen', 'Oopar nariyal rakhein aur gulaal se sajaayen', 'Ghar ke bahar daahini taraf Gudi khadi karein — akshat-kumkum arpit karein'] },
+        { title: 'Surya Puja', bullets: ['Ugate Surya ko jal arpit karein', '"Om Suryaya Namah" ka uchaaran karein', 'Surya ko laal pushp aur akshat chadhaayein'] },
+        { title: 'Ugadi Pachadi', bullets: ['Chhah rasaon wali Pachadi tayaar karein — teekha, meetha, khatta, kadwa, namkeen, kasaila', 'Bhog lagaayen aur parivar ke saath khaayein — jeevan ke sab pehluon ka sweekar'] },
+        { title: 'Bhog Arpan aur Aarti', bullets: ['Puranpoli ya Shrikhand ka bhog lagaayen', 'Diya aur agarbatti se aarti karein', 'Bade-buzurgo ka aashirvaad lein'] },
+        { title: 'Gudi Uttaran', bullets: ['Sandhya se pehle Gudi ko uttaarein', 'Parivar mein prasad baantein', 'Naye samvatsar mein naya kaam ya naya sankalp arambh karein'] }
+      ]
+    },
     rituals: [
       'Brahma muhurat mein uthkar snan karein aur swachh vastra pahnen.',
       'Ghar ke bahar — daane ke mein ek lamba baans gaadein, uspar kalaash, neem ki patti, gulaal aur aam ke patte sajaakar Gudi (dhwaj) khadi karein.',
@@ -2245,8 +2198,20 @@ const FESTIVAL_DETAIL = {
       { time: '12:00', ampm: 'PM', name: 'Bhog arpan', desc: 'Puranpoli, Shrikhand aur amti ka bhog lagaayen' },
       { time: '6:30', ampm: 'PM', name: 'Gudi Uttaran', desc: 'Sandhya se pehle Gudi utaarein aur prasad baanatein' },
     ],
-    dos: ['Subah snan karein — pavitrata ka pehla kadam', 'Naye kapde ya kuch naya khareedein', 'Neem-gud khaayein — svasthya aur samridhi ke liye', 'Bade buzurgo ka aashirvaad lein', 'Daan-dakshina zaroor karein'],
-    donts: ['Mansahar aur madira se bachein', 'Kisi se jhagda ya vaad-vivaad na karein', 'Karz lena is din shubh nahin', 'Sukhi vastu (namak, tel) udhar na dein', 'Gehna ya naya kaam shaam ke baad shuru na karein'],
+    dos: [
+      { title: 'Subah snan zaroor karein', desc: 'Pavitrata ka pehla kadam — din ko taaza aur swachh shuru karein' },
+      { title: 'Naye kapde pahanen', desc: 'Nav Samvatsar mein kuch naya khareedna shubh maana jaata hai' },
+      { title: 'Neem-gud khaayein', desc: 'Jeevan ke sab rasaon ka sweekar — svasthya aur samridhi ke liye' },
+      { title: 'Bade-buzurgo ka aashirvaad lein', desc: 'Parivar ke buzurgo ke paon sparsh karein — nav-samvatsar ki shubh shuruaat' },
+      { title: 'Daan-dakshina karein', desc: 'Zarooratmand logon ki madad karein — nav-samvatsar mein punya badhata hai' },
+    ],
+    donts: [
+      { title: 'Mansahar aur madira se bachein', desc: 'Is pavitra din satvik bhojan grahan karein' },
+      { title: 'Vaad-vivaad se bachein', desc: 'Nav Samvatsar ki shuruaat shanti aur prem se karein' },
+      { title: 'Karz na lein', desc: 'Is din udhar ya karz lena shubh nahin maana jaata' },
+      { title: 'Sukhi vastu udhar na dein', desc: 'Namak, tel aur gehun is din bahar na jaane dein' },
+      { title: 'Sandhya ke baad naya kaam na karein', desc: 'Naya kaam ya khareedaari din mein hi karein' },
+    ],
     upay: [
       { icon: '🌿', text: 'Subah neem ki 5 pattiyaan gud ke saath khaayein — saal bhar neerog rahenge.' },
       { icon: '🪔', text: 'Is din Lakshmi-Ganesh ki puja karke ghar ki tijori mein ek chandi ka sikka rakhein — dhan ki kami nahin rahegi.' },
@@ -2262,6 +2227,19 @@ const FESTIVAL_DETAIL = {
     ],
   },
   '2026-04-07': {
+    vidhi: {
+      bestTime: 'Madhyahna kaal (dopahar 12 baje ke aas-paas) — Prabhu Shri Ram ka janm is samay hua tha. Is kaal mein ki gayi puja sabse adhik phaladayi hai.',
+      steps: [
+        { title: 'Tayaari (Preparation)', bullets: ['Ghar ki safaai karein aur snan ka sthal swachh karein', 'Snan karein aur swachh peele ya safed vastra pahanen', 'Ram ji, Sita ji, Lakshman ji, Hanuman ji ki murti ya tasveer sthaapit karein'] },
+        { title: 'Sankalp', bullets: ['Shant mann se baithein aur sankalp lein', 'Haath mein jal, pushp aur akshat lekr sankalp karein', 'Parivar ki sukh-shanti aur samridhi ke liye praarthana karein'] },
+        { title: 'Kalash Sthapna', bullets: ['Jal se bhra kalash sthaapit karein', 'Kalash par aam ke patte aur nariyal rakhein', 'Puja sthal par Gangajal chhidkein'] },
+        { title: 'Avahan (Invocation)', bullets: ['Diya aur agarbatti jalaayen', 'Haath jodkar Ram ji ko aawahan karein', '"Om Shri Ramaya Namah" ka uchaaran karein'] },
+        { title: 'Bhog aur Puja Arpan', bullets: ['Murti par roli-chawal ka tilak lagaayen', 'Tulsi dal aur champa ke pushp arpit karein', 'Panjiri ya phal ka bhog lagaayen', 'Panchamrit arpit karein — dudh, dahi, ghee, shahad, shakkar'] },
+        { title: 'Paath aur Jap', bullets: ['Sundar Kaand ya Ram Raksha Stotra ka paath karein', '"Shri Ram Jai Ram Jai Jai Ram" ya "Om Ram Ramaya Namah" ka 108 baar jap karein'] },
+        { title: 'Aarti', bullets: ['Diya aur kapoor se aarti karein', 'Ghanti bajaayein — "Jai Raghunandan Jai Siya Ram" gaayein', 'Dopahar 12 baje vishesh Janma Mahotsav aarti karein'] },
+        { title: 'Prasad Vitaran', bullets: ['Bhog murti ko arpit karein', 'Parivar ke saabhi sadasyon mein prasad baantein', 'Garib aur zarooratmand logon ko bhi prasad dein'] }
+      ]
+    },
     rituals: [
       'Subah Brahma Muhurat mein uthkar snan karein aur Ram ji ki tasveer ya murti sthaapit karein.',
       'Ram ji ko pitambar (peela vastram), tulsi mala, champa ke pushp aur chandan lagaayen.',
@@ -2277,8 +2255,20 @@ const FESTIVAL_DETAIL = {
       { time: '12:30', ampm: 'PM', name: 'Maha Aarti', desc: 'Panchaamrit abhishek ke baad vishesh aarti' },
       { time: '7:00', ampm: 'PM', name: 'Sandhya Aarti', desc: 'Shri Ram ki saptami aarti, deeye jalaayen' },
     ],
-    dos: ['Upvaas rakhein — phal, sabudana aur sendha namak khaayen', 'Ram Naam ka jap karein — "Ram Ram" ya "Jai Shri Ram"', 'Tulsi dal zaroor arpit karein', 'Garib aur zarooratmand logon ko daan karein', 'Mandir jaayein — prasad baanatein'],
-    donts: ['Mansahar, pyaz, lahsun aur madira bilkul nahin', 'Jhooth bolna is din mahapap hai', 'Kisi ko takleef na dein — Ram ji ka aadesh hai', 'Faizool kharcha band karein', 'Raat ko late tak na jaagein'],
+    dos: [
+      { title: 'Upvaas rakhein', desc: 'Phal, sabudana aur sendha namak ka sevan karein — purity ke liye' },
+      { title: 'Ram Naam ka jap karein', desc: '"Shri Ram Jai Ram Jai Jai Ram" ya "Jai Shri Ram" 108 baar jap karein' },
+      { title: 'Tulsi dal zaroor chadhaayen', desc: 'Ram ji ko tulsi ati priya hai — bina tulsi puja adhoori hai' },
+      { title: 'Daan-punya karein', desc: 'Garib aur zarooratmand logon ko bhojan aur vastra daan karein' },
+      { title: 'Mandir jaayein', desc: 'Ram mandir mein darshan karein aur prasad parivar mein baantein' },
+    ],
+    donts: [
+      { title: 'Mansahar, pyaz, lahsun se bachein', desc: 'Sattvic bhojan grahan karein — tamasik cheezein is din varjit hain' },
+      { title: 'Jhooth na bolein', desc: 'Ram ji satya ke pratik hain — is din jhooth bolna mahapap hai' },
+      { title: 'Kisi ko takleef na dein', desc: 'Shabd aur karm dono se — dharma aur karuna ka paalan karein' },
+      { title: 'Faizool kharcha na karein', desc: 'Is pavitra din mein sanyam aur sadgi rakhein' },
+      { title: 'Raat ko late na jaagein', desc: 'Subah Brahma Muhurat mein uthna is din vishesh phaladayi hai' },
+    ],
     upay: [
       { icon: '🏹', text: 'Is din "Shri Ram Raksha Stotra" ka paath 11 baar karein — saal bhar badhaaon se raksha hogi.' },
       { icon: '🌸', text: 'Mandir mein 108 tulsi dal chadhaayein aur 1 kg chaawal ka daan karein — Kark rashi ke liye ati shubh.' },
@@ -2294,6 +2284,17 @@ const FESTIVAL_DETAIL = {
     ],
   },
   '2026-08-17': {
+    vidhi: {
+      bestTime: 'Ardha Raat (Midnight — 12 baje) — Krishnashtami ki raat Rohini nakshatra mein Shri Krishna ka janm hua tha. Is samay kiya abhishek aur puja sabse vishesh phal deta hai.',
+      steps: [
+        { title: 'Subah ki Tayaari', bullets: ['Snan karke neele ya peele vastra pahanen', 'Laddu Gopal ki pratima ko dodhkar naye kapde pehnaayein', 'Jhanki sajaayen — Vrindavan aur Mathura ka drishan tayaar karein'] },
+        { title: 'Sankalp', bullets: ['Deepak jalaakar haath mein jal lein aur sankalp karein', 'Krishnashtami upvaas ka sankalp — phal aur sabudana khaayen'] },
+        { title: 'Shodashopachar Puja', bullets: ['Kalash sthaapit karein', 'Avahan, snan, vastra, chandan, pushp, dhoop, deep, naivedya — 16 upachaar se puja karein', 'Durva aur tulsi dal zaroor chadhaayein', '56 bhog tayaar karein — makkhan, mishri, dahi vishesh'] },
+        { title: 'Bhajan aur Kirtan', bullets: ['"Hare Rama Hare Rama, Rama Rama Hare Hare" mahaamantra gaayein', 'Krishna leela ki kathaa sunein ya padein', 'Raat bhar jagaran karein — jhulaa sajaayen'] },
+        { title: 'Ardha Raat Abhishek (12 baje)', bullets: ['Shankh, ghant aur nagaara bajaayen — janm ka naad gunjaayen', 'Panchamrit abhishek karein — dudh, dahi, ghee, shahad, shakkar', '"Nanda ghar anand bhayo! Jai Kanhaiya Lal ki!" ka udghoshan karein', 'Doodh aur mishri ka bhog lagaayen'] },
+        { title: 'Aarti aur Prasad', bullets: ['Maha Aarti karein', 'Makkhan-mishri, panjiri aur phal ka prasad baanatein', 'Parivar ke saath anand maanayen'] }
+      ]
+    },
     rituals: [
       'Krishnashtami ki raat puri raat jagaran karein.',
       'Midnight (12 baje) Krishna janm ke samay ghant, shankh bajaayein aur naad gunjaayen.',
@@ -2309,8 +2310,20 @@ const FESTIVAL_DETAIL = {
       { time: '11:30', ampm: 'PM', name: 'Jagaran Shuru', desc: 'Bhajan, kirtan aur Krishna leela ki kathaa sunein' },
       { time: '12:00', ampm: 'AM', name: 'Janma Mahotsav', desc: 'Abhishek, ghant naad aur Nand ghar anand bhayo!', active: true },
     ],
-    dos: ['Raat bhar jagaran karein — Krishna kathaon ka shravaan', 'Panchamrit abhishek zaroor karein', 'Makkhan, mishri aur dahi ka bhog lagaayen', 'Hare Krishna mahamantra ka jap karein', 'Dahi-handi mein hissa lein — bachon ke saath'],
-    donts: ['Is din mansahar bilkul varjit hai', 'Subah snan se pehle kuch na khaayen', 'Kisi ke baare mein bura na sochin', 'Ghar mein ladhaayi-jhagda na karein', 'Raat ko sone ke baad hi prasad le sakein'],
+    dos: [
+      { title: 'Raat bhar jagaran karein', desc: 'Krishna kathaon ka shravaan karein — janm ke samay tak jagte rahein' },
+      { title: 'Panchamrit abhishek karein', desc: 'Dudh, dahi, ghee, shahad, shakkar — Laddu Gopal ko panchamrit naan karaayen' },
+      { title: 'Makkhan-mishri ka bhog lagaayen', desc: 'Krishna ji ka sabse priya bhog — makkhan aur mishri zaroor lagaayen' },
+      { title: 'Mahamantra ka jap karein', desc: '"Hare Rama Hare Rama, Rama Rama Hare Hare" — 108 mala jap vishesh phaladayi' },
+      { title: 'Dahi-handi mein hissa lein', desc: 'Bachon ke saath anand maanayen — Krishna ki bal leela ka anubhav karein' },
+    ],
+    donts: [
+      { title: 'Mansahar bilkul na karein', desc: 'Krishnashtami par satvik bhojan — mansahar poori tarah varjit hai' },
+      { title: 'Snan se pehle kuch na khaayen', desc: 'Upvaas ka sankalp — subah snan karke hi kuch grahan karein' },
+      { title: 'Bure vichar na rakhein', desc: 'Mann ko swachh aur prasanna rakhein — Krishna bhakti ke liye' },
+      { title: 'Ghar mein jhagda na karein', desc: 'Parivar mein prem aur shanti ka vaatavaran banaayen' },
+      { title: 'Midnight se pehle prasad na khaayen', desc: 'Janm ke samay tak upvaas rakhein — phir prasad grahan karein' },
+    ],
     upay: [
       { icon: '🦚', text: 'Raat 12 baje Krishna janm ke samay "Hare Rama Hare Rama, Rama Rama Hare Hare" 108 baar jaap karein — Shukra dasha mein prem mein safalta milegi.' },
       { icon: '🌸', text: 'Is din peele kapdon mein 1 kg makkhan mandir mein daan karein — dhan aur samridhi badhegi.' },
@@ -2326,6 +2339,18 @@ const FESTIVAL_DETAIL = {
     ],
   },
   '2026-10-24': {
+    vidhi: {
+      bestTime: 'Pradosh Kaal (Sandhya 6–8 baje) — Amavasya ki raat Lakshmi puja ke liye Pradosh aur Nishita kaal sabse shubh hai. Is samay ki gayi Lakshmi puja se dhan, samridhi aur sukh milta hai.',
+      steps: [
+        { title: 'Subah ki Tayaari', bullets: ['Til ke tel se abhyang snan karein', 'Ghar ki poorni safaai karein — Lakshmi ji ka swagat karein', 'Rangoli banaayein aur diye aur aaklash sajaayen'] },
+        { title: 'Kalash Sthapna', bullets: ['Puja ghar mein kalash sthaapit karein', 'Lakshmi-Ganesh ki nayee murti sthaapit karein', 'Kumkum, haldi, pushp aur akshat tayaar karein'] },
+        { title: 'Ganesh Puja (Pratham)', bullets: ['Pehle Ganesh ji ki puja zaroor karein — vighna-haaran', 'Modak ya laddu ka bhog lagaayen', '"Om Gam Ganapataye Namah" 21 baar jap karein'] },
+        { title: 'Lakshmi Avahan', bullets: ['Lotus pushp aur kamal gatta mala arpit karein', 'Ghee ka diya jalaayen', '"Om Shreem Mahalakshmyei Namah" ka uchaaran karein', 'Shodashopachaar se puja karein — 16 upachaar'] },
+        { title: 'Lakshmi Aarti (7–8 PM)', bullets: ['"Jai Lakshmi Mata" 7 baar gaayein', 'Prasad mein kheer, barfi aur mishri rakhein', 'Tijori aur vyapar ke ledger ki bhi puja karein'] },
+        { title: 'Diye Jalaayen', bullets: ['Ghar ke har kone mein mitti ke diye jalaayen', 'Ghar ke bahar bhi deepmala laagaayein', 'Diye ko haath se na bujhaayen — apne aap bujhne dein'] },
+        { title: 'Prasad aur Daan', bullets: ['Bhog prasad parivar mein baanatein', 'Garib aur zarooratmand logon ko mithai aur daan dein', 'Raat bhar jagaran karein — Lakshmi bhajan karein'] }
+      ]
+    },
     rituals: [
       'Chaudas se hi safaai aur sajaavat shuru karein — ghar mein Lakshmi aane ki taiyaari.',
       'Amavasya ki raat Lakshmi-Ganesh ki murti sthaapit karein puja sthal par.',
@@ -2342,8 +2367,20 @@ const FESTIVAL_DETAIL = {
       { time: '9:00', ampm: 'PM', name: 'Diye Jalaayen', desc: 'Ghar ke bahar aur andar mitti ke diye rozhaana ki tarah sab jagah jalaayen' },
       { time: '12:00', ampm: 'AM', name: 'Kali Puja', desc: 'Bengal mein Kali puja — shyama sangeet ke saath' },
     ],
-    dos: ['Ghar ki safaai aur rangoli zaroor banaayein', 'Naye kapde pahanen aur parivar ko gift dein', 'Badi mithai laayen — kheer, gulab jamun, barfi', 'Tijori aur vyapar ki dukaan ki puja karein', 'Diya aur aarti ke samay aankhein band karke Lakshmi ka dhyaan karein'],
-    donts: ['Is raat sona nahin chahiye — jagaran karein', 'Jhadu bilkul nahin chalaayen — Lakshmi ka apmaaan', 'Kisi ko udhar na dein aaj ke din', 'Kachra ghar ke andar na rakhein', 'Puja ke baad diye ko haath se bujhaayen nahin — apne aap bujhne dein'],
+    dos: [
+      { title: 'Ghar ki safaai aur rangoli banaayein', desc: 'Lakshmi ji swachh ghar mein aati hain — sajaavat aur rangoli zaroor karein' },
+      { title: 'Naye kapde pahanen', desc: 'Parivar aur dosto ko gifts aur mithai zaroor dein' },
+      { title: 'Meetha banaayein ya laayen', desc: 'Kheer, gulab jamun, barfi — bhog aur uphaar ke liye' },
+      { title: 'Tijori aur dukaan ki puja karein', desc: 'Vyapar sthal par Lakshmi puja karein — samridhi ke liye' },
+      { title: 'Lakshmi ka dhyaan karein', desc: 'Diya aur aarti ke samay aankhein band karke poorn samarpan se puja karein' },
+    ],
+    donts: [
+      { title: 'Is raat sona nahin chahiye', desc: 'Amavasya ki raat jagaran karein — Lakshmi puja ke baad bhajan karein' },
+      { title: 'Jhadu na chalaayen', desc: 'Sandhya ke baad jhadu chalana Lakshmi ji ka apmaaan maana jaata hai' },
+      { title: 'Aaj udhar na dein', desc: 'Is din paise ya cheez udhar dena dhan-naash ka kaaran maana jaata hai' },
+      { title: 'Ghar mein kachra na rakhein', desc: 'Safaai karo — Lakshmi gandagi mein nahin aatein' },
+      { title: 'Diye ko haath se na bujhaayen', desc: 'Diye ko apne aap bujhne dein — haath se bujhaana ashubh maana jaata hai' },
+    ],
     upay: [
       { icon: '🪔', text: 'Is din Lakshmi stotram 11 baar padhein aur ghar mein 11 diye jalaayen — Shukra mahadasha mein Lakshmi ka anugrah banega.' },
       { icon: '💰', text: 'Puja sthal par chandi ka chaar-anna ya paisa rakhein — tijori mein saal bhar nahi hataayen — dhan badhega.' },
@@ -2359,6 +2396,18 @@ const FESTIVAL_DETAIL = {
     ],
   },
   '2026-09-05': {
+    vidhi: {
+      bestTime: 'Pratah Kaal ya Madhyahna (subah 6–9 baje ya dopahar) — Shukla Chaturthi par Ganesh ji ki Prana Pratishtha ke liye subah ka samay shreshtha hai.',
+      steps: [
+        { title: 'Tayaari', bullets: ['Snan karke laal ya peele vastra pahanen', 'Eco-friendly mitti ke Ganesh ji laayen — PoP se bachein', 'Puja sthal ko swachh karein aur rangoli banaayein'] },
+        { title: 'Prana Pratishtha', bullets: ['Kalash sthaapit karein', 'Ganesh ji ki pratima sthaapit karein', '"Om Gam Ganapataye Namah" se Prana Pratishtha karein'] },
+        { title: 'Shodashopachaar Puja', bullets: ['Avahan — Ganesh ji ko aawahan karein', 'Snan — Panchamrit se abhishek karein', 'Vastra — laal kapda odhaayen', 'Chandan — tilak lagaayen'] },
+        { title: 'Vishesh Arpan', bullets: ['21 durva (doob ghaas) zaroor chadhaayein', '21 modak ka bhog lagaayen — ukadiche modak shreshtha', 'Laal hibiscus pushp arpit karein', 'Tulsi patta KABHI NA chadhaayein — varjit hai'] },
+        { title: 'Ganesh Atharvashirsha Paath', bullets: ['Puja ke baad Ganesh Atharvashirsha ka paath karein', '"Vakratunda Mahakaya" stotra gaayein', '"Om Gam Ganapataye Namah" 108 baar jap karein'] },
+        { title: 'Aarti', bullets: ['"Sukhkarta Dukhaharta Varta Vighnachi" aarti gaayein', 'Ghanti bajaayein aur prasad baanatein'] },
+        { title: 'Visarjan (Samapti par)', bullets: ['1.5, 3, 5, 7 ya 10 din baad Ganesh ji ka visarjan karein', 'Visarjan se pehle ek baar aur puja zaroor karein', 'Ganga ya sarovar mein eco-friendly visarjan — paani mein ghol sakte hain'] }
+      ]
+    },
     rituals: [
       'Subah snan karke laal ya peele vastram pahankaar puja karein.',
       'Mitti ki Ganesh pratima sthaapit karein — plastic ya PoP se bachein (eco-friendly Ganesh).',
@@ -2374,8 +2423,20 @@ const FESTIVAL_DETAIL = {
       { time: '7:00', ampm: 'PM', name: 'Sandhya Aarti', desc: '"Sukhkarta Dukhaharta" — parivar ke saath' },
       { time: '9:00', ampm: 'PM', name: 'Bhajan Kirtan', desc: 'Ganpati Bappa Morya! Satsang aur prasad' },
     ],
-    dos: ['Laal ya peela rang pahanen — Ganesh ji ke priya rang', 'Durva (doob ghaas) 21 blades zaroor chadhaayen', 'Modak ya laddu ka bhog lagaayen', 'Eco-friendly mitti ka Ganesh laayen', '"Ganesh Atharvashirsha" paath karein — khaaskar budh-vaar ko'],
-    donts: ['Tulsi patta Ganesh ji ko na chadhaayen', 'Visarjan se pehle pratima ko tooten ya khiskayen nahin', 'Kathal (jackfruit) Ganesh ji ko pasand nahin', 'PoP ya chemical paint ki murti se bachein', 'Puja ke dauraan phone use na karein'],
+    dos: [
+      { title: 'Laal ya peela rang pahanen', desc: 'Ye rang Ganesh ji ke priya hain — puja mein vishesh phaladayi' },
+      { title: '21 durva zaroor chadhaayen', desc: 'Bina durva Ganesh puja adhoori maani jaati hai — 21 blade chadhaayen' },
+      { title: 'Modak ka bhog lagaayen', desc: 'Ukadiche modak Ganesh ji ka sabse priya naivedya — zaroor lagaayen' },
+      { title: 'Eco-friendly mitti ka Ganesh laayen', desc: 'PoP se bachein — mitti ka Ganesh paani mein ghul jaata hai, prakriti ko nuksaan nahin' },
+      { title: 'Ganesh Atharvashirsha ka paath karein', desc: 'Khaaskar Budh-vaar ko — vighn door honge aur shubh kaarya sidh honge' },
+    ],
+    donts: [
+      { title: 'Tulsi patta na chadhaayen', desc: 'Ganesh ji ko tulsi chadhana varjit hai — keval durva aur pushp arpit karein' },
+      { title: 'Visarjan se pehle murti na hataayen', desc: 'Pratima ki sthapna se visarjan tak poorn shradha se seva karein' },
+      { title: 'Kathal (jackfruit) na chadhaayen', desc: 'Ganesh ji ko kathal priya nahin — is naivedya se bachein' },
+      { title: 'PoP murti se bachein', desc: 'Chemical paint aur PoP paani ko pradooshit karta hai — eco-friendly murti laayen' },
+      { title: 'Puja mein phone use na karein', desc: 'Poorn samarpan se puja karein — mobile bandh karein ya silent rakhein' },
+    ],
     upay: [
       { icon: '🐘', text: 'Har din subah "Om Gam Ganapataye Namah" 108 baar jap karein — saal bhar vighn door rahenge.' },
       { icon: '🌿', text: 'Is din 21 durva chadhaayein aur 21 modak Ganesh ji ko bhet karein — Shukra dasha mein rote-rote sapne poore honge.' },
@@ -2411,8 +2472,20 @@ function getFestDetailData(dateKey) {
       { time: '12:00', ampm: 'PM', name: 'Madhyan Bhog', desc: 'Prasad aur naivedya arpan — phal aur meetha' },
       { time: '7:00', ampm: 'PM', name: 'Sandhya Aarti', desc: 'Shaam ka diya jalaakar aarti aur dhoop jalaayen' },
     ],
-    dos: ['Subah snan kar swachh vastra pahanen', 'Upvaas ya satvik bhojan karein', 'Mandir jaayein aur prasad baanatein', 'Bade-buzurgo ka aashirvaad lein', 'Daan-punya ka kaarya zaroor karein'],
-    donts: ['Mansahar aur madira se parhez karein', 'Kisi se jhagda na karein', 'Faizool kharcha na karein', 'Sukhi cheez udhar na dein', 'Ghar mein ashuddhata na aane dein'],
+    dos: [
+      { title: 'Subah snan karein', desc: 'Swachh vastra pahanen — pavitrata se din ki shuruaat karein' },
+      { title: 'Upvaas ya satvik bhojan karein', desc: 'Tamasik bhojan se bachein — purity aur dhyan ke liye' },
+      { title: 'Mandir jaayein', desc: 'Darshan karein aur prasad parivar mein baantein' },
+      { title: 'Bade-buzurgo ka aashirvaad lein', desc: 'Parivar ke buzurgo ke charan sparsh karein' },
+      { title: 'Daan-punya karein', desc: 'Zarooratmand logon ki madad karein — is din ka punya akshay hai' },
+    ],
+    donts: [
+      { title: 'Mansahar aur madira se bachein', desc: 'Is pavitra din satvik bhojan grahan karein' },
+      { title: 'Vaad-vivaad se bachein', desc: 'Shanti aur prem ka mahaul banaayen' },
+      { title: 'Faizool kharcha na karein', desc: 'Sanyam aur sadgi is din ka swabhav hai' },
+      { title: 'Sukhi cheez udhar na dein', desc: 'Namak, tel, gehun is din bahar na jaane dein' },
+      { title: 'Ghar swachh rakhein', desc: 'Ashuddhata ghar mein nahin aane dein — pavitrata zaroori hai' },
+    ],
     upay: [
       { icon: '🪔', text: `${fest.name} ke din ghee ka diya jalaakar apne ishta devata ka dhyaan karein — manokaamna poori hogi.` },
       { icon: '🌸', text: 'Is din 108 baar apne ishta mantra ka jap karein — Shukra mahadasha mein vishesh phal milega.' },
@@ -2426,6 +2499,16 @@ function getFestDetailData(dateKey) {
       { icon: '🍬', item: 'Mishri ya gud — prasad ke liye', note: 'Naivedya mein meetha zaroori hai' },
       { icon: '🕯️', item: 'Agarbatti aur dhoop sticks', note: 'Puja mein sugandh ke liye' },
     ],
+    vidhi: {
+      bestTime: 'Pratah Kaal (subah 6–9 baje) ya Madhyahna (dopahar) — ishta devata ki puja ke liye Brahma Muhurat ya Madhyahna kaal shreshtha hai.',
+      steps: [
+        { title: 'Tayaari', bullets: ['Snan karein aur swachh vastra pahanen', 'Puja sthal swachh karein aur ishta devata ki murti ya tasveer sthaapit karein'] },
+        { title: 'Sankalp', bullets: ['Haath mein jal lein aur sankalp karein', `${fest.name} ki puja ke liye param shubh sankalp — parivar ki raksha aur sukh-samridhi`] },
+        { title: 'Puja Arpan', bullets: ['Diya aur agarbatti jalaayen', 'Pushp, akshat aur kumkum arpit karein', 'Naivedya — phal aur mishri ka bhog lagaayen'] },
+        { title: 'Jap aur Paath', bullets: ['Ishta mantra ka 108 baar jap karein', 'Chalisa ya stotra ka paath karein'] },
+        { title: 'Aarti aur Prasad', bullets: ['Ghee ke diye se aarti karein', 'Parivar mein prasad baantein', 'Daan-dakshina zaroor karein'] }
+      ]
+    },
   };
 }
 
@@ -2556,6 +2639,30 @@ const FB_SVG = `
 
 // opts: { chips, yesno, withFeedback, delay }
 // yesno: { yes: fn, no: fn, yesLabel, noLabel }
+// ── Chip block helper: divider + prompt text + chips row ──────────────────────
+const CHIP_PROMPT_STYLE = "font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:#0c0d10;line-height:1.3;margin:0;padding:12px 0 8px";
+function appendChipBlock(container, promptText, buildFn, animBase) {
+  const base = animBase || 0.1;
+  const wrap = document.createElement('div');
+  wrap.style.cssText = `animation:fadeDown 0.4s ${base}s ease both;opacity:0;animation-fill-mode:forwards`;
+  const hr = document.createElement('div');
+  hr.style.cssText = 'border-top:0.5px solid rgba(36,38,43,0.12);margin-top:4px';
+  const txt = document.createElement('p');
+  txt.style.cssText = CHIP_PROMPT_STYLE;
+  txt.textContent = promptText;
+  const row = document.createElement('div');
+  row.className = 'pcal-chips-row';
+  buildFn(row);
+  wrap.appendChild(hr);
+  wrap.appendChild(txt);
+  wrap.appendChild(row);
+  container.appendChild(wrap);
+  return row;
+}
+function chipBlockHTML(promptText, chipsHTML) {
+  return `<div style="${CHIP_PROMPT_STYLE};border-top:0.5px solid rgba(36,38,43,0.12);padding-top:12px;margin-top:4px">${promptText}</div><div class="pcal-chips-row" style="padding-bottom:4px">${chipsHTML}</div>`;
+}
+
 function appendBotMsg(messages, text, chips, withFeedback, delayMs, opts) {
   return new Promise(resolve => {
     const thinking = document.createElement('div');
@@ -2748,32 +2855,26 @@ function appendDarshanResponse(messages) {
     // Currently Live section
     const liveSection = document.createElement('div');
     liveSection.style.cssText = 'animation:msgSlideIn 0.25s ease';
-    liveSection.innerHTML = `
-      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:700;color:var(--text-high);line-height:1.1;display:flex;align-items:center;gap:7px;margin:10px 0 8px">
-        <span style="width:10px;height:10px;border-radius:50%;background:#fa2f40;display:inline-block;flex-shrink:0;box-shadow:0 0 0 3px rgba(250,47,64,0.18)"></span>
-        Currently Live
-      </p>
-      <div class="chips-row">
-        <div class="chip" onclick="openDarshanTemple('shirdi')">Shirdi Sai Baba</div>
-        <div class="chip" onclick="openDarshanTemple('vaishno')">Maa Vaishno Devi</div>
-        <div class="chip" onclick="openDarshanTemple('tirupati')">Tirupathi Balaji</div>
-        <div class="chip" onclick="openDarshanTemple('kashi')">Kashi Vishwanath</div>
-        <div class="chip" onclick="openDarshanTemple('siddhivinayak')">Siddhivinayak</div>
-        <div class="chip" onclick="openDarshan()">More</div>
-      </div>`;
+    liveSection.innerHTML = chipBlockHTML(
+      '<span style="display:inline-flex;align-items:center;gap:7px"><span style="width:10px;height:10px;border-radius:50%;background:#fa2f40;display:inline-block;flex-shrink:0;box-shadow:0 0 0 3px rgba(250,47,64,0.18)"></span>Abhi kaunsa mandir live dekhna chahoge?</span>',
+      `<div class="chip" onclick="openDarshanTemple('shirdi')">Shirdi Sai Baba</div>
+       <div class="chip" onclick="openDarshanTemple('vaishno')">Maa Vaishno Devi</div>
+       <div class="chip" onclick="openDarshanTemple('tirupati')">Tirupathi Balaji</div>
+       <div class="chip" onclick="openDarshanTemple('kashi')">Kashi Vishwanath</div>
+       <div class="chip" onclick="openDarshanTemple('siddhivinayak')">Siddhivinayak</div>
+       <div class="chip" onclick="openDarshan()">More</div>`
+    );
     messages.appendChild(liveSection);
 
     // Explore section
     const exploreSection = document.createElement('div');
     exploreSection.style.cssText = 'animation:msgSlideIn 0.3s ease';
-    exploreSection.innerHTML = `
-      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:14px 0 8px">A few other temples you can explore.</p>
-      <div class="chips-row">
-        <div class="chip" onclick="openDarshanTemple('meenakshi')">Meenakshi Amman</div>
-        <div class="chip" onclick="openDarshanTemple('kashi')">Kashi Vishwanath</div>
-        <div class="chip" onclick="openDarshanTemple('somnath')">Somnath Temple</div>
-        <div class="chip" onclick="openDarshanTemple('dwarkadhish')">Dwarkadhish Temple</div>
-      </div>`;
+    exploreSection.innerHTML = chipBlockHTML('Kuch aur temples explore karna chahoge?',
+      `<div class="chip" onclick="openDarshanTemple('meenakshi')">Meenakshi Amman</div>
+       <div class="chip" onclick="openDarshanTemple('kashi')">Kashi Vishwanath</div>
+       <div class="chip" onclick="openDarshanTemple('somnath')">Somnath Temple</div>
+       <div class="chip" onclick="openDarshanTemple('dwarkadhish')">Dwarkadhish Temple</div>`
+    );
     messages.appendChild(exploreSection);
 
     scrollToBottom(messages);
@@ -3560,11 +3661,9 @@ function renderTodayScreen() {
   const dateStr = `${VARA_NAMES[now.getDay()]}, ${now.getDate()} ${MONTH_EN[now.getMonth()]} ${now.getFullYear()}`;
 
   const hr = now.getHours();
-  document.getElementById('today-date').textContent  = dateStr;
-  document.getElementById('today-tithi').textContent = `${tithiName} · ${paksha}`;
   document.getElementById('p-nakshatra').textContent = NAKSHATRA[nakIdx];
-  document.getElementById('p-moon').textContent      = `${RASHI_GLYPH[moonRashi]} ${RASHI[moonRashi]}`;
-  document.getElementById('p-sun').textContent       = `${RASHI_GLYPH[sunRashi]} ${RASHI[sunRashi]}`;
+  document.getElementById('p-moon').textContent      = RASHI[moonRashi];
+  document.getElementById('p-sun').textContent       = RASHI[sunRashi];
   document.getElementById('p-vara').textContent      = VARA_NAMES[now.getDay()];
   document.getElementById('p-tithi').textContent     = tithiName;
   document.getElementById('p-rahukaal').textContent  = RAHUKAAL[now.getDay()];
@@ -3746,19 +3845,21 @@ function initFestivalChat(dateKey) {
         <p style="font-family:'JioType',sans-serif;font-size:14px;color:var(--text-high);line-height:1.6;margin:10px 0 0">${fest.detail}</p>
       </div>
     </div>
-    <div class="pcal-chips-row" style="animation:fadeDown 0.4s 0.18s ease both;opacity:0;animation-fill-mode:forwards">
+    ${chipBlockHTML('Kya jaanna chahoge?', `
       <button class="pcal-chip" onclick="festChipTap(this,'rituals')">Rituals</button>
-      <button class="pcal-chip" onclick="festChipTap(this,'shopping')">Kya khareedein</button>
+      <button class="pcal-chip" onclick="festChipTap(this,'vidhi')">Puja vidhi</button>
+      <button class="pcal-chip" onclick="festChipTap(this,'shopping')">Samagri list</button>
       <button class="pcal-chip" onclick="festChipTap(this,'pooja')">Pooja timing</button>
       <button class="pcal-chip" onclick="festChipTap(this,'dodont')">Kya karein / na karein</button>
       <button class="pcal-chip" onclick="festChipTap(this,'upay')">Shubh Upay</button>
       <button class="pcal-chip" onclick="festChipTap(this,'festivals')">Aane wale Tyohar</button>
-    </div>`;
+    `)}`;
 }
 
 const FEST_CHIPS_ALL = [
   { type: 'rituals',   label: 'Rituals' },
-  { type: 'shopping',  label: 'Kya khareedein' },
+  { type: 'vidhi',     label: 'Puja vidhi' },
+  { type: 'shopping',  label: 'Samagri list' },
   { type: 'pooja',     label: 'Pooja timing' },
   { type: 'dodont',    label: 'Kya karein / na karein' },
   { type: 'upay',      label: 'Shubh Upay' },
@@ -3799,23 +3900,21 @@ function festChipTap(el, type, parentRow) {
     responseEl.className = 'pcal-bot-row';
     responseEl.style.animation = 'fadeDown 0.3s ease both';
 
-    const builders = { rituals: buildFestRitualsHTML, shopping: buildFestShoppingHTML, pooja: buildFestPoojaHTML, dodont: buildFestDoDontHTML, upay: buildFestUpayHTML, festivals: buildUpcomingFestivals };
+    const builders = { rituals: buildFestRitualsHTML, vidhi: buildFestVidhiHTML, shopping: buildFestShoppingHTML, pooja: buildFestPoojaHTML, dodont: buildFestDoDontHTML, upay: buildFestUpayHTML, festivals: buildUpcomingFestivals };
     responseEl.innerHTML = `<div class="pcal-bot-content">${builders[type](data)}</div>`;
     msgs.appendChild(responseEl);
 
     const remaining = FEST_CHIPS_ALL.filter(c => !shown.has(c.type));
     if (remaining.length) {
-      const nextRow = document.createElement('div');
-      nextRow.className = 'pcal-chips-row';
-      nextRow.style.cssText = 'animation:fadeDown 0.4s 0.18s ease both;opacity:0;animation-fill-mode:forwards;margin-top:4px';
-      remaining.forEach(({ type: t, label: lbl }) => {
-        const btn = document.createElement('button');
-        btn.className = 'pcal-chip';
-        btn.textContent = lbl;
-        btn.onclick = () => festChipTap(btn, t, nextRow);
-        nextRow.appendChild(btn);
+      const nextRow = appendChipBlock(msgs, 'Aur kya explore karna chahoge?', row => {
+        remaining.forEach(({ type: t, label: lbl }) => {
+          const btn = document.createElement('button');
+          btn.className = 'pcal-chip';
+          btn.textContent = lbl;
+          btn.onclick = () => festChipTap(btn, t, row);
+          row.appendChild(btn);
+        });
       });
-      msgs.appendChild(nextRow);
     }
 
     msgs.scrollTop = msgs.scrollHeight;
@@ -3825,16 +3924,49 @@ function festChipTap(el, type, parentRow) {
 const PROSE_TITLE = "font-family:'JioType',sans-serif;font-size:16px;font-weight:700;color:var(--text-high);line-height:1.1";
 const PROSE       = "font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3";
 
-function buildFestShoppingHTML(data) {
-  const IC = 'https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_success_colored.svg';
-  const items = data.shopping.map(s => `
-    <div style="display:flex;gap:4px;align-items:flex-start">
-      <img src="${IC}" width="20" height="20" style="flex-shrink:0;margin-top:2px">
-      <p style="${PROSE};margin:0;flex:1">${s.item} — ${s.note}</p>
+function buildFestVidhiHTML(data) {
+  const v = data.vidhi;
+  const BADGE = (n) => `
+    <div style="width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+      <div style="width:16px;height:16px;border-radius:999px;background:#25ab21;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <span style="font-family:'JioType',sans-serif;font-size:8px;font-weight:500;color:#fff;line-height:1">${n}</span>
+      </div>
+    </div>`;
+  const steps = v.steps.map((s, i) => `
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:8px;align-items:flex-start">
+        ${BADGE(i + 1)}
+        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:500;color:#0c0d10;line-height:1.3;margin:0;flex:1">${s.title}</p>
+      </div>
+      <p style="${PROSE};margin:0;padding-left:28px">${s.bullets.map(b => '• ' + b).join('<br>')}</p>
     </div>`).join('');
   return `
     <div style="display:flex;flex-direction:column;gap:16px;padding:8px 0">
-      <p style="${PROSE_TITLE};line-height:1.3;margin:0">🛒 Puja ke liye kya khareedein</p>
+      <p style="${PROSE_TITLE};line-height:1.3;margin:0">🪔 Step-by-Step Puja Vidhi</p>
+      <div style="display:flex;flex-direction:column;gap:12px">${steps}</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <p style="${PROSE_TITLE};margin:0">⏰ Best time</p>
+        <p style="${PROSE};margin:0">${v.bestTime}</p>
+      </div>
+    </div>`;
+}
+
+function buildFestShoppingHTML(data) {
+  const items = data.shopping.map((s, i) => `
+    <div style="display:flex;gap:4px;align-items:flex-start">
+      <div style="width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+        <div style="width:16px;height:16px;border-radius:999px;background:#25ab21;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-family:'JioType',sans-serif;font-size:8px;font-weight:500;color:#fff;line-height:1">${i + 1}</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0">
+        <p style="${PROSE};margin:0">${s.item}</p>
+        <p style="font-family:'JioType',sans-serif;font-size:12px;font-weight:400;line-height:1.3;color:#191b1e;opacity:0.65;margin:0">${s.note}</p>
+      </div>
+    </div>`).join('');
+  return `
+    <div style="display:flex;flex-direction:column;gap:16px;padding:8px 0">
+      <p style="${PROSE_TITLE};line-height:1.3;margin:0">📋 Samagri list</p>
       <div style="display:flex;flex-direction:column;gap:8px">${items}</div>
     </div>`;
 }
@@ -3869,27 +4001,28 @@ function buildFestPoojaHTML(data) {
 }
 
 function buildFestDoDontHTML(data) {
-  const IC = 'https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_success_colored.svg';
-  const dosHTML   = data.dos.map(d => `
+  const IC_DO   = 'https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_success_colored.svg';
+  const IC_DONT = 'https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_error_colored.svg';
+  const PROSE_SUB = "font-family:'JioType',sans-serif;font-size:14px;font-weight:400;color:#191b1e;line-height:1.3;opacity:0.65;margin:0";
+  const row = (icon, d) => `
     <div style="display:flex;gap:4px;align-items:flex-start">
-      <img src="${IC}" width="20" height="20" style="flex-shrink:0;margin-top:2px">
-      <p style="${PROSE};margin:0;flex:1">${d}</p>
-    </div>`).join('');
-  const dontsHTML = data.donts.map(d => `
-    <div style="display:flex;gap:4px;align-items:flex-start">
-      <img src="${IC}" width="20" height="20" style="flex-shrink:0;margin-top:2px">
-      <p style="${PROSE};margin:0;flex:1">${d}</p>
-    </div>`).join('');
+      <img src="${icon}" width="20" height="20" style="flex-shrink:0;margin-top:2px">
+      <div style="display:flex;flex-direction:column;gap:4px;flex:1;min-width:0">
+        <p style="${PROSE};margin:0">${d.title}</p>
+        <p style="${PROSE_SUB}">${d.desc}</p>
+      </div>
+    </div>`;
+  const dosHTML   = data.dos.map(d => row(IC_DO, d)).join('');
+  const dontsHTML = data.donts.map(d => row(IC_DONT, d)).join('');
   return `
     <div style="display:flex;flex-direction:column;gap:16px;padding:8px 0">
-      <p style="${PROSE_TITLE};line-height:1.3;margin:0">📋 Kya karein · Kya na karein</p>
       <div style="display:flex;flex-direction:column;gap:16px">
-        <div>
-          <p style="${PROSE_TITLE};line-height:1.3;margin:0 0 8px">✅ Karein</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <p style="${PROSE_TITLE};line-height:1.3;margin:0">🟢 What to do</p>
           <div style="display:flex;flex-direction:column;gap:8px">${dosHTML}</div>
         </div>
-        <div>
-          <p style="${PROSE_TITLE};line-height:1.3;margin:0 0 8px">❌ Na Karein</p>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <p style="${PROSE_TITLE};line-height:1.3;margin:0">🔴 What not to do</p>
           <div style="display:flex;flex-direction:column;gap:8px">${dontsHTML}</div>
         </div>
       </div>
@@ -4008,7 +4141,6 @@ function openDarshan() {
   document.querySelector('.app-title').textContent = 'Live Darshan';
   document.getElementById('chatPlaceholder').textContent = 'Ask about darshan timings...';
   document.getElementById('screenContent').scrollTop = 0;
-  document.getElementById('floatingDiya').style.display = 'flex';
   initDarshanChat();
 }
 
@@ -4036,7 +4168,9 @@ function initDarshanChat() {
     { name: 'Dhoop Aarti',   time: '6:00',  ampm: 'PM', hour: 18, desc: 'Sandhya puja · 45 min' },
     { name: 'Shej Aarti',    time: '10:30', ampm: 'PM', hour: 22, desc: 'Ratri ki antim aarti · 30 min' },
   ];
-  const liveAarti = AARTIS.find(a => hr >= a.hour && hr < a.hour + 1) || AARTIS[1];
+  const liveAartiMatch = AARTIS.find(a => hr >= a.hour && hr < a.hour + 1);
+  const liveAarti = liveAartiMatch || AARTIS[1];
+  const isCurrentlyLive = !!liveAartiMatch;
   const dateLabel = now.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'short' });
 
   msgs.innerHTML = `
@@ -4049,7 +4183,7 @@ function initDarshanChat() {
             <div class="darshan-video-wrap" id="darshVideoWrap" onclick="loadDarshVideo(this)">
               <div class="darshan-video-thumb" style="background:#000;padding:0">
                 <img src="https://www.figma.com/api/mcp/asset/a6ab8df4-acf9-4910-a9c0-a10094c88e8d" alt="Shirdi Sai Baba mandir" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>
-                <div class="darshan-live-overlay"><div class="darshan-live-dot"></div>Live</div>
+                ${isCurrentlyLive ? `<div class="darshan-live-overlay"><div class="darshan-live-dot"></div>Live</div>` : ''}
                 <div class="darshan-play-btn">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="margin-left:3px">
                     <polygon points="5 3 19 12 5 21 5 3" fill="#3535f3"/>
@@ -4069,14 +4203,12 @@ function initDarshanChat() {
         </div>
       </div>
     </div>
-    <div style="padding:12px 0"><div style="width:100%;height:1px;background:var(--text-high);opacity:0.12"></div></div>
-    <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:#0c0d10;line-height:1.3;margin:0;padding:8px 0 0;animation:fadeDown 0.35s 0.1s ease both;opacity:0;animation-fill-mode:forwards">Do you want to explore something else?</p>
-    <div class="pcal-chips-row" id="darshChips" style="padding:8px 0;animation:fadeDown 0.4s 0.18s ease both;opacity:0;animation-fill-mode:forwards">
+    ${chipBlockHTML('Aur kya explore karna chahoge?', `
       <button class="pcal-chip" onclick="darshChipTap(this,'tirupati')">Tirupathi Balaji</button>
       <button class="pcal-chip" onclick="darshChipTap(this,'kashi')">Kashi Vishwanath</button>
       <button class="pcal-chip" onclick="darshChipTap(this,'siddhivinayak')">Siddhivinayak</button>
       <button class="pcal-chip" onclick="darshMoreChips(this,'',3)">More</button>
-    </div>`;
+    `)}`;
 }
 
 const ALL_DARSH_TEMPLES = [
@@ -4105,10 +4237,7 @@ function darshChipRowHTML(excludeType, offset, count) {
 }
 
 function buildDarshFollowSection(currentType) {
-  return `
-    <div style="padding:12px 0"><div style="width:100%;height:1px;background:var(--text-high);opacity:0.12"></div></div>
-    <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:#0c0d10;line-height:1.3;margin:0;padding:8px 0 0;animation:fadeDown 0.35s 0.1s ease both;opacity:0;animation-fill-mode:forwards">Do you want to explore something else?</p>
-    <div class="pcal-chips-row" style="padding:8px 0;animation:fadeDown 0.4s 0.18s ease both;opacity:0;animation-fill-mode:forwards">${darshChipRowHTML(currentType, 0, 3)}</div>`;
+  return chipBlockHTML('Aur kya explore karna chahoge?', darshChipRowHTML(currentType, 0, 3));
 }
 
 function darshMoreChips(el, excludeType, offset) {
@@ -4309,7 +4438,6 @@ function handleBackBtn() {
   switchTab(0, null);
   document.querySelector('.app-title').textContent = 'Devotion';
   document.getElementById('chatPlaceholder').textContent = 'Ask anything...';
-  document.getElementById('floatingDiya').style.display = 'none';
 }
 
 // ─── PANCHANG CALENDAR ────────────────────────────────────────
@@ -4348,9 +4476,9 @@ function initPanchangChat() {
   const todayFest  = FESTIVALS[`${now.getFullYear()}-${mm}-${dd}`];
 
   const festHtml = todayFest
-    ? `<div class="pcal-today-field fest">
-         <div class="pcal-today-field-label">Aaj ka Parv</div>
-         <div class="pcal-today-field-val">${todayFest.emoji} ${todayFest.name}</div>
+    ? `<div class="pcal-today-row" style="border-top:0.5px solid rgba(36,38,43,0.12);padding-top:8px;margin-top:0">
+         <span class="pcal-today-row-label" style="color:#8a5c00">Aaj ka Parv</span>
+         <span class="pcal-today-row-val" style="color:#8a5c00">${todayFest.emoji} ${todayFest.name}</span>
        </div>` : '';
 
   msgs.innerHTML = `
@@ -4360,58 +4488,57 @@ function initPanchangChat() {
         <div class="pcal-intro-text">Yeh rahe aaj ke Panchang vishesh 🙏</div>
         <div class="pcal-today-card">
           <div class="pcal-today-card-hd">
-            <div class="pcal-today-card-hd-icon">🕉️</div>
-            <div>
-              <div class="pcal-today-card-hd-title">Aaj ka Panchang</div>
-              <div class="pcal-today-card-hd-date">${dateStr}</div>
-            </div>
+            <div class="pcal-today-card-hd-icon"><img src="https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/icons/svg/ic_biography.svg" width="20" height="20" style="filter:brightness(0) invert(1)"></div>
+            <div class="pcal-today-card-hd-title">Aajka Panchang</div>
           </div>
-          <div class="pcal-today-card-body">
-            <div class="pcal-today-grid">
-              <div class="pcal-today-field">
-                <div class="pcal-today-field-label">Tithi</div>
-                <div class="pcal-today-field-val">${tithiName}</div>
-              </div>
-              <div class="pcal-today-field">
-                <div class="pcal-today-field-label">Paksha</div>
-                <div class="pcal-today-field-val">${paksha}</div>
-              </div>
-              <div class="pcal-today-field">
-                <div class="pcal-today-field-label">Nakshatra</div>
-                <div class="pcal-today-field-val">${NAKSHATRA[nakIdx]}</div>
-              </div>
-              <div class="pcal-today-field">
-                <div class="pcal-today-field-label">Vara</div>
-                <div class="pcal-today-field-val">${vara}</div>
-              </div>
-              <div class="pcal-today-field">
-                <div class="pcal-today-field-label">Chandra Rashi</div>
-                <div class="pcal-today-field-val">${RASHI_GLYPH[moonRashi]} ${RASHI[moonRashi]}</div>
-              </div>
-              <div class="pcal-today-field">
-                <div class="pcal-today-field-label">Surya Rashi</div>
-                <div class="pcal-today-field-val">${RASHI_GLYPH[sunRashi]} ${RASHI[sunRashi]}</div>
-              </div>
-              <div class="pcal-today-field rahu">
-                <div class="pcal-today-field-label">⚠️ Rahukaal</div>
-                <div class="pcal-today-field-val">${rahukaal}</div>
-              </div>
-              ${festHtml}
+          <div class="pcal-today-divider"></div>
+          <div class="pcal-today-rows">
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Tithi</span>
+              <span class="pcal-today-row-val">${tithiName}</span>
             </div>
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Paksha</span>
+              <span class="pcal-today-row-val">${paksha}</span>
+            </div>
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Nakshatra</span>
+              <span class="pcal-today-row-val">${NAKSHATRA[nakIdx]}</span>
+            </div>
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Vara</span>
+              <span class="pcal-today-row-val">${vara}</span>
+            </div>
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Chandra Rashi</span>
+              <span class="pcal-today-row-val">${RASHI[moonRashi]}</span>
+            </div>
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Surya Rashi</span>
+              <span class="pcal-today-row-val">${RASHI[sunRashi]}</span>
+            </div>
+            <div class="pcal-today-row">
+              <span class="pcal-today-row-label">Rahu Kaal</span>
+              <span class="pcal-today-row-val">${rahukaal}</span>
+            </div>
+            ${festHtml}
           </div>
         </div>
         <div style="padding:16px 18px 8px;display:flex;flex-direction:column;gap:8px">
-          <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:700;line-height:1.1;color:#0c0d10;margin:0">Shubh Muhurat Today</p>
+          <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:700;line-height:1.1;color:#0c0d10;margin:0">🌅 Shubh Muhurat Today</p>
           <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;line-height:1.3;color:#0c0d10;margin:0">Abhijit Muhurat: 12:04–12:52 PM — auspicious for starting new ventures, rituals, or important meetings.</p>
         </div>
       </div>
     </div>
-    <div class="pcal-chips-row" id="pcalChips" style="animation:fadeDown 0.4s 0.18s ease both;opacity:0;animation-fill-mode:forwards">
+    ${chipBlockHTML('Kya jaanna chahoge aaj?', `
       <button class="pcal-chip" onclick="panchangChipTap(this,'ekadashi')">Ekadashi</button>
       <button class="pcal-chip" onclick="panchangChipTap(this,'purnima')">Purnima</button>
       <button class="pcal-chip" onclick="panchangChipTap(this,'chaturthi')">Chaturthi</button>
       <button class="pcal-chip" onclick="panchangChipTap(this,'week_0')">Weekly Panchang</button>
-    </div>`;
+      <button class="pcal-chip" onclick="panchangChipTap(this,'week_14')">Ram Navami Week</button>
+      <button class="pcal-chip" onclick="panchangChipTap(this,'week_28')">Amavasya Week</button>
+      <button class="pcal-chip" onclick="panchangChipTap(this,'week_76')">Purnima Week</button>
+    `)}`;
 }
 
 function panchangChipTap(el, type, parentRow) {
@@ -4451,17 +4578,15 @@ function panchangChipTap(el, type, parentRow) {
     // Follow-up chips after every bot response
     const followChips = getPcalFollowChips(type);
     if (followChips.length) {
-      const chipRow = document.createElement('div');
-      chipRow.className = 'pcal-chips-row';
-      chipRow.style.cssText = 'animation:fadeDown 0.4s 0.18s ease both;opacity:0;animation-fill-mode:forwards;margin-top:4px';
-      followChips.forEach(({ label: lbl, action }) => {
-        const btn = document.createElement('button');
-        btn.className = 'pcal-chip';
-        btn.textContent = lbl;
-        btn.onclick = () => panchangChipTap(btn, action, chipRow);
-        chipRow.appendChild(btn);
+      appendChipBlock(msgs, 'Aur kya explore karna chahoge?', row => {
+        followChips.forEach(({ label: lbl, action }) => {
+          const btn = document.createElement('button');
+          btn.className = 'pcal-chip';
+          btn.textContent = lbl;
+          btn.onclick = () => panchangChipTap(btn, action, row);
+          row.appendChild(btn);
+        });
       });
-      msgs.appendChild(chipRow);
     }
 
     msgs.scrollTop = msgs.scrollHeight;
@@ -4568,38 +4693,35 @@ function buildWeekPanchang(startOffset = 0) {
   for (let i = 0; i < 7; i++) {
     const dt = new Date(now); dt.setDate(now.getDate() + startOffset + i);
     const p  = getDayPanchang(dt.getFullYear(), dt.getMonth(), dt.getDate());
-
-    // Determine highlight class + inline badge
     let hlClass = '';
-    let hlRow   = '';
+    let noteHtml = '';
     if (p.festival) {
-      hlClass = ' has-festival';
-      hlRow   = `<div class="pcal-week-highlight-row"><span class="pcal-week-fest-label">${p.festival.emoji} ${p.festival.name}</span></div>`;
+      hlClass  = ' has-festival';
+      noteHtml = `<div class="pcal-week-auspicious">${p.festival.emoji} ${p.festival.name}</div>`;
     } else if (p.tithi === 'Purnima') {
-      hlClass = ' has-purnima';
-      hlRow   = `<div class="pcal-week-highlight-row"><span class="pcal-week-purn-label">🌕 Purnima</span></div>`;
+      hlClass  = ' has-purnima';
+      noteHtml = `<div class="pcal-week-auspicious">Purnima — paavan tithi</div>`;
     } else if (p.tithi === 'Ekadashi') {
-      hlClass = ' has-ekadashi';
-      hlRow   = `<div class="pcal-week-highlight-row"><span class="pcal-week-ekad-label">🌿 Ekadashi</span></div>`;
+      hlClass  = ' has-ekadashi';
+      noteHtml = `<div class="pcal-week-auspicious">Ekadashi — upvaas aur puja</div>`;
     } else if (p.tithi === 'Amavasya') {
-      hlClass = ' has-amavasya';
-      hlRow   = `<div class="pcal-week-highlight-row"><span class="pcal-week-amas-label">🌑 Amavasya</span></div>`;
+      hlClass  = ' has-amavasya';
+      noteHtml = `<div class="pcal-week-auspicious">Amavasya — pitru tarpan</div>`;
     }
-
     const phase = moonPhase(p.tithiNum);
+    const isToday = startOffset === 0 && i === 0;
     cards += `
-      <div class="pcal-week-card${i === 0 ? ' today-card' : ''}${hlClass}" style="animation-delay:${i * 0.06}s">
+      <div class="pcal-week-card${isToday ? ' today-card' : ''}${hlClass}" style="animation-delay:${i * 0.06}s">
         <div class="pcal-week-card-date">
           <div class="pcal-week-card-day">${DAY[dt.getDay()]}</div>
           <div class="pcal-week-card-num">${dt.getDate()}</div>
-          <div class="pcal-week-phase-emoji" title="${phase.label}">${phase.emoji}</div>
+          <div class="pcal-week-phase-emoji">${phase.emoji}</div>
         </div>
-        <div class="pcal-week-divider"></div>
         <div class="pcal-week-info">
           <div class="pcal-week-tithi">${p.tithi} · ${p.paksha}</div>
-          <div class="pcal-week-meta">${p.nakshatra} · ${phase.label}</div>
-          ${hlRow}
-          <div class="pcal-week-rahu">⚠️ Rahu: ${p.rahukaal}</div>
+          <div class="pcal-week-meta">${p.nakshatra}</div>
+          <div class="pcal-week-rahu">Rahu Kaal: ${p.rahukaal}</div>
+          ${noteHtml}
         </div>
       </div>`;
   }
@@ -4621,24 +4743,34 @@ function buildImportantDates() {
     if (!p.festival && !isSpecial) continue;
 
     // Show festival name inside card; tithi-based specials are self-evident from the tithi field
-    const hlRow = p.festival
-      ? `<div class="pcal-week-highlight-row"><span class="pcal-week-fest-label">${p.festival.emoji} ${p.festival.name}</span></div>`
-      : '';
-
+    let hlClass = '';
+    let noteHtml = '';
+    if (p.festival) {
+      hlClass  = ' has-festival';
+      noteHtml = `<div class="pcal-week-auspicious">${p.festival.emoji} ${p.festival.name}</div>`;
+    } else if (p.tithi === 'Purnima') {
+      hlClass  = ' has-purnima';
+      noteHtml = `<div class="pcal-week-auspicious">Purnima — paavan tithi</div>`;
+    } else if (p.tithi === 'Ekadashi') {
+      hlClass  = ' has-ekadashi';
+      noteHtml = `<div class="pcal-week-auspicious">Ekadashi — upvaas aur puja</div>`;
+    } else if (p.tithi === 'Amavasya') {
+      hlClass  = ' has-amavasya';
+      noteHtml = `<div class="pcal-week-auspicious">Amavasya — pitru tarpan</div>`;
+    }
     const phase = moonPhase(p.tithiNum);
     cards += `
-      <div class="pcal-week-card${i === 0 ? ' today-card' : ''}" style="animation-delay:${found * 0.06}s">
+      <div class="pcal-week-card${i === 0 ? ' today-card' : ''}${hlClass}" style="animation-delay:${found * 0.06}s">
         <div class="pcal-week-card-date">
           <div class="pcal-week-card-day">${DAY[dt.getDay()]}</div>
           <div class="pcal-week-card-num">${dt.getDate()}</div>
-          <div class="pcal-week-phase-emoji" title="${phase.label}">${phase.emoji}</div>
+          <div class="pcal-week-phase-emoji">${phase.emoji}</div>
         </div>
-        <div class="pcal-week-divider"></div>
         <div class="pcal-week-info">
           <div class="pcal-week-tithi">${p.tithi} · ${p.paksha}</div>
-          <div class="pcal-week-meta">${p.nakshatra} · ${phase.label}</div>
-          ${hlRow}
-          <div class="pcal-week-rahu">⚠️ Rahu: ${p.rahukaal}</div>
+          <div class="pcal-week-meta">${p.nakshatra}</div>
+          <div class="pcal-week-rahu">Rahu Kaal: ${p.rahukaal}</div>
+          ${noteHtml}
         </div>
       </div>`;
     found++;
@@ -4715,17 +4847,6 @@ function loadDarshVideo(wrap) {
 }
 
 
-function lightDiya() {
-  const stage = document.getElementById('fdiyaStage');
-  if (stage.classList.contains('lit')) return;
-  stage.classList.add('lit');
-
-  const label = document.getElementById('fdiyaLabel');
-  label.textContent = 'Jyot prajalit';
-  label.classList.add('lit-label');
-
-  showToast('🪔 Aapka diya prajalit ho gaya! Om Sai Ram 🙏🏼');
-}
 
 function setReminder(btn, aartiName, time) {
   if (btn.classList.contains('reminded')) return;
@@ -4758,17 +4879,16 @@ function initAskScreen() {
   const msgs = document.querySelector('#s1 .ask-messages');
   if (!msgs || msgs.dataset.init === '1') return;
   msgs.dataset.init = '1';
-  const chipRow = document.createElement('div');
-  chipRow.className = 'chips-row';
-  chipRow.style.cssText = 'animation:fadeDown 0.4s 0.35s ease both;opacity:0;animation-fill-mode:forwards';
-  ['Meri Kundli banao', 'Yearly Horoscope 2026', 'Career aur Naukri', 'Vivah & Prem', 'Dhan & Sampatti'].forEach(c => {
-    const ch = document.createElement('div');
-    ch.className = 'chip';
-    ch.textContent = c;
-    ch.onclick = () => tapChip(c);
-    chipRow.appendChild(ch);
-  });
-  msgs.appendChild(chipRow);
+  appendChipBlock(msgs, 'Kahan se shuru karein?', row => {
+    row.className = 'chips-row';
+    ['Meri Kundli banao', 'Yearly Horoscope 2026', 'Career aur Naukri', 'Vivah & Prem', 'Dhan & Sampatti'].forEach(c => {
+      const ch = document.createElement('div');
+      ch.className = 'chip';
+      ch.textContent = c;
+      ch.onclick = () => tapChip(c);
+      row.appendChild(ch);
+    });
+  }, 0.35);
 }
 
 // Initialise
