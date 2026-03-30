@@ -39,6 +39,7 @@
   --icon-medium: #170054;
   --icon-high: #141414;
   --stroke-subtle: rgba(36,38,43,0.12);
+  --warning: #f06d0f;
 
   /* ── Spacing scale (use these everywhere, never raw px) ──
      xs=8  sm=12  md=16  lg=24  xl=32
@@ -151,8 +152,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 }
 .lhb-bg {
   position: absolute; inset: 0;
-  background: url('https://www.figma.com/api/mcp/asset/37e5b81e-b03f-40f4-9fc3-11595b349c24') center center / cover no-repeat;
-  filter: brightness(0.85);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='137'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='120%25' r='110%25'%3E%3Cstop offset='0%25' stop-color='%236a22c8'/%3E%3Cstop offset='40%25' stop-color='%232a0870'/%3E%3Cstop offset='100%25' stop-color='%23040010'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='360' height='137' fill='url(%23bg)'/%3E%3Ccircle cx='180' cy='160' r='110' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Ccircle cx='180' cy='160' r='145' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3Ccircle cx='30' cy='18' r='1.2' fill='white' opacity='0.7'/%3E%3Ccircle cx='68' cy='8' r='0.8' fill='white' opacity='0.5'/%3E%3Ccircle cx='110' cy='24' r='1' fill='white' opacity='0.6'/%3E%3Ccircle cx='155' cy='12' r='1.4' fill='white' opacity='0.8'/%3E%3Ccircle cx='200' cy='6' r='0.9' fill='white' opacity='0.5'/%3E%3Ccircle cx='248' cy='20' r='1.1' fill='white' opacity='0.65'/%3E%3Ccircle cx='290' cy='10' r='0.8' fill='white' opacity='0.55'/%3E%3Ccircle cx='330' cy='28' r='1.3' fill='white' opacity='0.7'/%3E%3Ccircle cx='52' cy='45' r='0.7' fill='white' opacity='0.4'/%3E%3Ccircle cx='318' cy='55' r='0.9' fill='white' opacity='0.45'/%3E%3Ccircle cx='88' cy='62' r='0.6' fill='white' opacity='0.35'/%3E%3Ccircle cx='272' cy='38' r='0.8' fill='white' opacity='0.4'/%3E%3C/svg%3E") center center / cover no-repeat;
 }
 .lhb-gradient {
   position: absolute; inset: 0;
@@ -260,8 +260,8 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 .rashi-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
 .rashi-row-label { font-family: 'JioType', sans-serif; font-size: 13px; font-weight: 400; color: var(--text-low); flex-shrink: 0; }
 .rashi-row-val   { font-family: 'JioType', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-high); text-align: right; }
-.rashi-row-val.good   { color: #25ab21; }
-.rashi-row-val.warn   { color: #f06d0f; }
+.rashi-row-val.good   { color: var(--success); }
+.rashi-row-val.warn   { color: var(--warning); }
 .rashi-row-val.caution{ color: var(--error); }
 .rashi-bar-row { display: flex; align-items: center; gap: 8px; }
 .rashi-bar { flex: 1; height: 6px; background: var(--surface-ghost); border-radius: 99px; overflow: hidden; }
@@ -499,7 +499,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 /* Kundali Progress Indicator */
 .kundali-progress-row { display: flex; gap: 10px; align-items: center; padding: 8px 0; }
 .kundali-progress-track { flex: 1; height: 3px; background: #eeeeef; border-radius: 999px; overflow: hidden; }
-.kundali-progress-fill { height: 100%; width: 0%; background: #00ad8b; border-radius: 999px; transition: width 3.2s cubic-bezier(0.4,0,0.2,1); }
+.kundali-progress-fill { height: 100%; width: 0%; background: var(--sparkle-50); border-radius: 999px; transition: width 3.2s cubic-bezier(0.4,0,0.2,1); }
 .kundali-progress-x { width: 16px; height: 16px; flex-shrink: 0; background: none; border: none; padding: 0; cursor: pointer; opacity: 0.45; display: flex; align-items: center; justify-content: center; }
 
 /* Kundali Upsell Prompt */
@@ -710,7 +710,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
               <div class="widget-status-card" style="animation-delay:0s;background:var(--surface-ghost-icon);border-color:transparent" onclick="goToTodayCareer()">
                 <div class="widget-status-top">
                   <div class="widget-status-title">💼 Career</div>
-                  <div class="widget-status-date-badge" style="background:#fff4ec;border:1px solid #f06d0f"><span style="color:#f06d0f">Careful</span></div>
+                  <div class="widget-status-date-badge" style="background:var(--secondary-20);border:1px solid var(--warning)"><span style="color:var(--warning)">Careful</span></div>
                 </div>
                 <div class="widget-status-bullets">
                   <span class="widget-status-bullet-text">Stay patient — the rewards of your hard work are coming</span>
@@ -721,7 +721,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
               <div class="widget-status-card" style="animation-delay:0.07s;background:var(--secondary-20);border-color:transparent" onclick="goToTodayLove()">
                 <div class="widget-status-top">
                   <div class="widget-status-title">💕 Prem &amp; Rishte</div>
-                  <div class="widget-status-date-badge" style="background:#edfbed;border:1px solid #25ab21"><span style="color:#25ab21">Favourable</span></div>
+                  <div class="widget-status-date-badge" style="background:var(--sparkle-20);border:1px solid var(--success)"><span style="color:var(--success)">Favourable</span></div>
                 </div>
                 <div class="widget-status-bullets">
                   <span class="widget-status-bullet-text">Warmth in relationships — give time to the ones you love</span>
@@ -732,7 +732,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
               <div class="widget-status-card" style="animation-delay:0.14s;background:var(--sparkle-20);border-color:transparent" onclick="goToTodayFinance()">
                 <div class="widget-status-top">
                   <div class="widget-status-title">💰 Dhan</div>
-                  <div class="widget-status-date-badge" style="background:#fff4ec;border:1px solid #f06d0f"><span style="color:#f06d0f">Careful</span></div>
+                  <div class="widget-status-date-badge" style="background:var(--secondary-20);border:1px solid var(--warning)"><span style="color:var(--warning)">Careful</span></div>
                 </div>
                 <div class="widget-status-bullets">
                   <span class="widget-status-bullet-text">Avoid large expenses or investments for now</span>
@@ -743,7 +743,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
               <div class="widget-status-card" style="animation-delay:0.21s;background:var(--primary-20);border-color:transparent" onclick="goToTodayHealth()">
                 <div class="widget-status-top">
                   <div class="widget-status-title">🌿 Swasthya</div>
-                  <div class="widget-status-date-badge" style="background:#edfbed;border:1px solid #25ab21"><span style="color:#25ab21">Favourable</span></div>
+                  <div class="widget-status-date-badge" style="background:var(--sparkle-20);border:1px solid var(--success)"><span style="color:var(--success)">Favourable</span></div>
                 </div>
                 <div class="widget-status-bullets">
                   <span class="widget-status-bullet-text">Energy is high — a great day for outdoor activities</span>
@@ -754,7 +754,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
               <div class="widget-status-card" style="animation-delay:0.28s;background:var(--surface-ghost);border-color:transparent" onclick="goToTodayFamily()">
                 <div class="widget-status-top">
                   <div class="widget-status-title">🏡 Parivar</div>
-                  <div class="widget-status-date-badge" style="background:#edfbed;border:1px solid #25ab21"><span style="color:#25ab21">Favourable</span></div>
+                  <div class="widget-status-date-badge" style="background:var(--sparkle-20);border:1px solid var(--success)"><span style="color:var(--success)">Favourable</span></div>
                 </div>
                 <div class="widget-status-bullets">
                   <span class="widget-status-bullet-text">A peaceful vibe at home — spend quality time with family</span>
@@ -1035,7 +1035,7 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
       <div class="anno-row"><span class="anno-key">Font</span><span class="anno-val">JioType (400, 500, 700)</span></div>
       <div class="anno-row"><span class="anno-key">Design system</span><span class="anno-val">JDS v3.6.4</span></div>
       <div class="anno-row"><span class="anno-key">Figma nodes used</span><span class="anno-val">14 nodes</span></div>
-      <div class="anno-row" style="margin-top:6px"><span class="anno-key" style="font-weight:700">JDS match</span><span class="anno-val" style="font-weight:700;color:#25AB21">78%</span></div>
+      <div class="anno-row" style="margin-top:6px"><span class="anno-key" style="font-weight:700">JDS match</span><span class="anno-val" style="font-weight:700;color:var(--success)">78%</span></div>
       <div class="anno-row" style="align-items:flex-start"><span class="anno-key" style="padding-top:1px">Compliant</span><span class="anno-val" style="text-align:right">Buttons · Chips<br>Typography · Colors<br>Spacing tokens<br>JBIQ States · Badges</span></div>
       <div class="anno-row" style="align-items:flex-start"><span class="anno-key" style="padding-top:1px;color:#fa2f40">Gaps</span><span class="anno-val" style="text-align:right;color:#fa2f40">Insight cards<br>Lucky grid<br>Home widgets</span></div>
     </div>
@@ -1048,11 +1048,12 @@ body { font-family: 'JioType', sans-serif; background: #ffffff; display: flex; m
 
 <script>
 // ── Kundali creation step state ──
-let _kundaliStep    = null;  // null | 'dob' | 'place' | 'time'
-let _kundaliTopic   = null;  // topic selected before creating kundali
-let _kundaliPlace   = null;  // place of birth typed by user
-let _kundaliTime    = null;  // time of birth typed by user
-let _kundaliCreated = false; // true once kundali has been generated
+let _kundaliStep      = null;  // null | 'dob' | 'place' | 'time'
+let _kundaliTopic     = null;  // topic selected before creating kundali
+let _kundaliPlace     = null;  // place of birth typed by user
+let _kundaliTime      = null;  // time of birth typed by user
+let _kundaliChartStyle = null; // 'north' | 'south'
+let _kundaliCreated   = false; // true once kundali has been generated
 
 // ── Clock ──
 function updateClock() {
@@ -1145,9 +1146,10 @@ function sendMessage() {
     row.innerHTML = `<div class="msg-user"><p>${escapeHtml(text)}</p></div>`;
     messages.appendChild(row);
     scrollToBottom(messages);
-    if (step === 'dob')   _handleKundaliDob(text, messages);
-    if (step === 'place') _handleKundaliPlace(text, messages);
-    if (step === 'time')  _handleKundaliTime(text, messages);
+    if (step === 'dob')          _handleKundaliDob(text, messages);
+    if (step === 'place')        _handleKundaliPlace(text, messages);
+    if (step === 'time')         _handleKundaliTime(text, messages);
+    if (step === 'rashifalTime') _handleRashifalTime(text, messages);
     return;
   }
 
@@ -1309,15 +1311,29 @@ function goToShubhMuhurat() {
     const botRow = document.createElement('div');
     botRow.className = 'msg-bot-row';
     botRow.style.animation = 'msgSlideIn 0.22s ease';
-    const topicChips = ['Love & Relationships', 'Career', 'Money', 'Health', 'Home & Family', 'Life & Future']
-      .map(t => `<button class="chip" onclick="goToJyotishTopic('${t}')">${t}</button>`).join('');
+    const categoryChips = Object.keys(_todayMuhuratData)
+      .map(c => `<button class="chip" onclick="goToTodayMuhurat('${c}')">${c}</button>`).join('');
     botRow.innerHTML = `<div class="msg-bot">
-      <p>🪔 Today's <strong>Shubh Muhurat is 12:05–12:53 PM</strong> — the Abhijit Muhurat, considered the most auspicious window of the day ✨. Ideal for signing agreements, starting travel, or launching new ventures 🚀.</p>
+      <div class="pred-body">Abhijit Muhurat — the most universally auspicious window of the day. Ideal for starting anything important.</div>
+      <div class="muharat-list" style="padding:8px 0 4px">
+        <div class="muharat-row">
+          <div class="muharat-details">
+            <span class="muharat-time">12:05 PM – 12:53 PM</span>
+            <span class="muharat-quality">🌸 Uttam</span>
+          </div>
+        </div>
+      </div>
+      <div class="muharat-badges-row" style="margin:0 0 4px">
+        <span class="muharat-badge">Abhijit Muhurat</span>
+        <span class="muharat-badge">Surya Hora</span>
+        <span class="muharat-badge">No Yamaghanta</span>
+        <span class="muharat-badge">Shukla Paksha</span>
+      </div>
+      <p style="font-family:'JioType',sans-serif;font-size:13px;font-weight:400;color:var(--text-low);line-height:1.4;margin:8px 0 4px">Abhijit Muhurat is governed by Lord Vishnu and nullifies all doshas — best window of the day.</p>
       <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
-      <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">Are you looking for something specific?</p>
+      <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">What are you planning today?</p>
       <div class="chips-row" style="margin:0;padding:8px 0">
-        ${topicChips}
-        <button class="chip" onclick="goToShubhMuharatMoreOptions()">More options</button>
+        ${categoryChips}
       </div>
     </div>`;
     messages.appendChild(botRow);
@@ -1361,6 +1377,123 @@ function goToShubhMuharatMoreOptions() {
   }, 400);
 }
 
+const _todayMuhuratData = {
+  'Career': {
+    has: true,
+    intro: 'A favourable window for job interviews, appraisal conversations, starting a new role or signing a work contract.',
+    time: '10:15 AM – 11:00 AM',
+    quality: 'Shubh',
+    badges: ['Hasta Nakshatra', 'Budh Hora', 'No Rahu Kalam', 'Shukla Paksha'],
+    why: 'Mercury (Budha) Hora amplifies intellect and professional communication — ideal for career moves.'
+  },
+  'Business': {
+    has: true,
+    intro: 'Abhijit Muhurat — the universally auspicious midday window. Best for launching a business, registering a company or signing agreements.',
+    time: '12:05 PM – 12:53 PM',
+    quality: '🌸 Uttam',
+    badges: ['Abhijit Muhurat', 'Surya Hora', 'No Yamaghanta', 'Shukla Paksha'],
+    why: 'Abhijit Muhurat is governed by Lord Vishnu and nullifies all doshas. Best window of the day.'
+  },
+  'Travel': {
+    has: true,
+    intro: 'An auspicious window for starting a journey — especially for work travel or pilgrimage. Moon is favourably placed.',
+    time: '7:30 AM – 8:15 AM',
+    quality: 'Shubh',
+    badges: ['Rohini Nakshatra', 'Chandra Hora', 'No Yamaghanta', 'Shukla Paksha'],
+    why: 'Moon in Rohini is a classical indicator of safe and successful travel in Jyotish.'
+  },
+  'Love': {
+    has: true,
+    intro: 'A good time for important conversations in relationships, expressing feelings or meeting a prospective partner.',
+    time: '6:20 PM – 7:05 PM',
+    quality: 'Shubh',
+    badges: ['Rohini Nakshatra', 'Shukra Hora', 'No Rahu Kalam', 'Shukla Paksha'],
+    why: 'Venus (Shukra) Hora governs love and relationships. Rohini is associated with beauty and attraction.'
+  },
+  'Money': {
+    has: false,
+    reason: 'Chandrashtama is active for Vrishabh Rashi today. Investments, financial decisions and large purchases are best avoided.',
+    nextWindow: 'Tomorrow · 9:00 AM onwards'
+  },
+  'Health': {
+    has: false,
+    reason: 'Mangal Hora is dominant today and is considered unfavourable for medical procedures, surgeries or starting new treatments.',
+    nextWindow: 'Wednesday 1 Apr · 10:30 AM'
+  },
+  'Shopping': {
+    has: true,
+    intro: 'A good window for buying electronics, clothes or household items. Guru Hora brings prosperity to purchases.',
+    time: '11:10 AM – 11:55 AM',
+    quality: 'Shubh',
+    badges: ['Hasta Nakshatra', 'Guru Hora', 'No Rahu Kalam', 'Shukla Paksha'],
+    why: 'Jupiter (Guru) Hora is auspicious for material acquisitions — items bought now tend to bring lasting value.'
+  },
+};
+
+function goToTodayMuhurat(category) {
+  const messages = document.getElementById('askMessages');
+
+  const userRow = document.createElement('div');
+  userRow.className = 'msg-user-row';
+  userRow.style.animation = 'msgSlideIn 0.22s ease';
+  userRow.innerHTML = `<div class="msg-user"><p>${category}</p></div>`;
+  messages.appendChild(userRow);
+  scrollToBottom(messages);
+
+  const thinking = document.createElement('div');
+  thinking.className = 'msg-bot-row';
+  thinking.style.padding = '6px 0';
+  thinking.innerHTML = `<video width="32" height="32" autoplay loop muted playsinline style="border-radius:50%;flex-shrink:0;display:block"><source src="https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/states/Light/Thinking_state.mp4" type="video/mp4"></video>`;
+  messages.appendChild(thinking);
+  scrollToBottom(messages);
+
+  setTimeout(() => {
+    messages.removeChild(thinking);
+    const data = _todayMuhuratData[category];
+    const others = Object.keys(_todayMuhuratData).filter(c => c !== category);
+    const chipsHtml = others.map(c => `<button class="chip" onclick="goToTodayMuhurat('${c}')">${c}</button>`).join('');
+
+    const botRow = document.createElement('div');
+    botRow.className = 'msg-bot-row';
+    botRow.style.animation = 'msgSlideIn 0.22s ease';
+
+    let content;
+    if (data.has) {
+      content = `
+        <div class="pred-body">${data.intro}</div>
+        <div class="muharat-list" style="padding:8px 0 4px">
+          <div class="muharat-row">
+            <div class="muharat-details">
+              <span class="muharat-time">${data.time}</span>
+              <span class="muharat-quality">${data.quality}</span>
+            </div>
+          </div>
+        </div>
+        <div class="muharat-badges-row" style="margin:0 0 4px">
+          ${data.badges.map(b => `<span class="muharat-badge">${b}</span>`).join('')}
+        </div>
+        <p style="font-family:'JioType',sans-serif;font-size:13px;font-weight:400;color:var(--text-low);line-height:1.4;margin:8px 0 4px">${data.why}</p>`;
+    } else {
+      content = `
+        <div class="pred-body">No shubh muhurat for ${category} today.</div>
+        <p style="font-family:'JioType',sans-serif;font-size:14px;font-weight:400;color:var(--text-low);line-height:1.4;margin:6px 0">${data.reason}</p>
+        <div style="display:flex;align-items:center;gap:8px;background:var(--grey-20);border-radius:10px;padding:10px 12px;margin:8px 0">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><circle cx="12" cy="12" r="10" stroke="var(--primary-50)" stroke-width="2"/><path d="M12 8v4l3 3" stroke="var(--primary-50)" stroke-width="2" stroke-linecap="round"/></svg>
+          <span style="font-family:'JioType',sans-serif;font-size:13px;font-weight:500;color:var(--text-high)">Next window: ${data.nextWindow}</span>
+        </div>`;
+    }
+
+    botRow.innerHTML = `<div class="msg-bot">
+      ${content}
+      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+      <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">Check another category?</p>
+      <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>
+    </div>`;
+    messages.appendChild(botRow);
+    scrollToBottom(messages);
+  }, 900);
+}
+
 function goToRashifal() {
   switchNav(1, document.getElementById('nav1'));
   document.getElementById('appTitle').textContent = "Today's Rashifal";
@@ -1369,7 +1502,7 @@ function goToRashifal() {
   const userRow = document.createElement('div');
   userRow.className = 'msg-user-row';
   userRow.style.animation = 'msgSlideIn 0.22s ease';
-  userRow.innerHTML = `<div class="msg-user"><p>Today's Rashifal</p></div>`;
+  userRow.innerHTML = `<div class="msg-user"><p>Today\'s Rashifal</p></div>`;
   messages.appendChild(userRow);
   scrollToBottom(messages);
 
@@ -1385,94 +1518,213 @@ function goToRashifal() {
     const botRow = document.createElement('div');
     botRow.className = 'msg-bot-row';
     botRow.style.animation = 'msgSlideIn 0.22s ease';
-    botRow.innerHTML = `<div class="msg-bot">
 
-      <!-- Header -->
-      <div class="rashi-header">
-        <div class="rashi-header-tag">Today's Horoscope</div>
-        <div class="rashi-header-name">Aquarius ♒</div>
-        <div class="rashi-header-sub">Friday, 27 March 2026</div>
-      </div>
+    const checkIcon = (sz) => `<svg width="${sz}" height="${sz}" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="10" cy="10" r="10" style="fill:var(--success)"/><path d="M6 10.3l2.6 2.6 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
-      <!-- Guide -->
-      <div class="rashi-guide">Saturn urges patience today — morning favours focus, evening opens meaningful conversations. Trust the process. ✨</div>
+    botRow.innerHTML = `<div class="msg-bot" id="rashifalCard">
 
-      <!-- 2×2 Grid -->
-      <div class="rashi-grid">
-        <div class="rashi-cell">
-          <div class="rashi-cell-icon" style="background:var(--surface-ghost-icon)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H6V3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5ZM19 3H8V21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V5C21 4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3ZM17 10C17 10.2652 16.8946 10.5196 16.7071 10.7071C16.5196 10.8946 16.2652 11 16 11H12C11.7348 11 11.4804 10.8946 11.2929 10.7071C11.1054 10.5196 11 10.2652 11 10V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7H16C16.2652 7 16.5196 7.10536 16.7071 7.29289C16.8946 7.48043 17 7.73478 17 8V10Z" fill="var(--icon-medium)"/></svg>
+      <div class="pred-body">Here is your Rashifal for today, Sneha.</div>
+
+      <!-- Status card -->
+      <div style="padding:8px 0">
+        <div class="kundali-status-card">
+          <div class="kundali-status-header">
+            <div class="kundali-status-name">Kumbh (Aquarius)</div>
+            <div class="kundali-status-meta">Monday, 30 March 2026</div>
           </div>
-          <div class="rashi-cell-label">Career</div>
-          <div class="rashi-cell-text">Steady progress. Avoid confrontations with seniors today.</div>
-        </div>
-        <div class="rashi-cell">
-          <div class="rashi-cell-icon" style="background:var(--sparkle-20)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15.6001 3.99991C14.2643 4.04142 12.9875 4.55927 12.0001 5.45991C11.0128 4.55927 9.73588 4.04142 8.40011 3.99991C7.68608 3.9945 6.97817 4.13181 6.31795 4.40379C5.65773 4.67576 5.0585 5.07691 4.55546 5.58367C4.05242 6.09044 3.6557 6.69261 3.38861 7.35483C3.12152 8.01704 2.98943 8.72594 3.00011 9.43991C3.00198 9.96618 3.06916 10.4902 3.20011 10.9999H5.46011L7.17011 8.44991C7.26611 8.30358 7.39883 8.18501 7.55501 8.10604C7.71119 8.02708 7.88536 7.99048 8.06011 7.99991C8.23445 8.0111 8.40281 8.06777 8.54843 8.16426C8.69405 8.26076 8.81186 8.39372 8.89011 8.54991L11.1201 12.9999L12.1701 11.4399C12.2618 11.3042 12.3855 11.1931 12.5302 11.1164C12.675 11.0397 12.8363 10.9997 13.0001 10.9999H15.0001C15.2653 10.9999 15.5197 11.1053 15.7072 11.2928C15.8948 11.4803 16.0001 11.7347 16.0001 11.9999C16.0001 12.2651 15.8948 12.5195 15.7072 12.707C15.5197 12.8946 15.2653 12.9999 15.0001 12.9999H13.5401L11.8301 15.5499C11.7395 15.6875 11.6164 15.8005 11.4716 15.879C11.3268 15.9575 11.1648 15.9991 11.0001 15.9999H10.9401C10.7658 15.9887 10.5974 15.9321 10.4518 15.8356C10.3062 15.7391 10.1884 15.6061 10.1101 15.4499L7.88011 10.9999L6.88011 12.5599C6.7838 12.7029 6.65215 12.8185 6.49797 12.8956C6.34378 12.9727 6.17228 13.0086 6.00011 12.9999H4.00011C5.15011 15.1399 7.27011 17.3499 10.1801 19.9999L10.6701 20.4499C11.0388 20.7872 11.5204 20.9743 12.0201 20.9743C12.5198 20.9743 13.0014 20.7872 13.3701 20.4499L13.8601 20.0099C18.3701 15.8599 21.0001 12.7999 21.0001 9.43991C21.0108 8.72594 20.8787 8.01704 20.6116 7.35483C20.3445 6.69261 19.9478 6.09044 19.4448 5.58367C18.9417 5.07691 18.3425 4.67576 17.6823 4.40379C17.022 4.13181 16.3141 3.9945 15.6001 3.99991Z" fill="var(--sparkle-50)"/></svg>
+          <div class="kundali-status-divider"></div>
+          <div class="kundali-status-table">
+            <div class="kundali-status-row"><span class="kundali-status-label">Janma Nakshatra</span><span class="kundali-status-value">Rohini, Pada 3</span></div>
+            <div class="kundali-status-row"><span class="kundali-status-label">Moon transit</span><span class="kundali-status-value">Vrishabh (Taurus)</span></div>
+            <div class="kundali-status-row"><span class="kundali-status-label">Today\'s energy</span><span class="kundali-status-value">Favourable</span></div>
+            <div class="kundali-status-row"><span class="kundali-status-label">Ruling planet</span><span class="kundali-status-value">Shani (Saturn)</span></div>
+            <div class="kundali-status-row"><span class="kundali-status-label">Lucky number</span><span class="kundali-status-value">3 &amp; 8</span></div>
+            <div class="kundali-status-row"><span class="kundali-status-label">Lucky colour</span><span class="kundali-status-value">Blue</span></div>
+            <div class="kundali-status-row"><span class="kundali-status-label">Lucky time</span><span class="kundali-status-value">5:00 – 7:00 PM</span></div>
           </div>
-          <div class="rashi-cell-label">Love</div>
-          <div class="rashi-cell-text">Venus brings warmth. Express what you've held back.</div>
-        </div>
-        <div class="rashi-cell">
-          <div class="rashi-cell-icon" style="background:var(--surface-ghost-icon)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 7H18V8C18 8.26522 18.1054 8.51957 18.2929 8.70711C18.4804 8.89464 18.7348 9 19 9C19.2652 9 19.5196 8.89464 19.7071 8.70711C19.8946 8.51957 20 8.26522 20 8V7H21C21.2652 7 21.5196 6.89464 21.7071 6.70711C21.8946 6.51957 22 6.26522 22 6C22 5.73478 21.8946 5.48043 21.7071 5.29289C21.5196 5.10536 21.2652 5 21 5H20V4C20 3.73478 19.8946 3.48043 19.7071 3.29289C19.5196 3.10536 19.2652 3 19 3C18.7348 3 18.4804 3.10536 18.2929 3.29289C18.1054 3.48043 18 3.73478 18 4V5H17C16.7348 5 16.4804 5.10536 16.2929 5.29289C16.1054 5.48043 16 5.73478 16 6C16 6.26522 16.1054 6.51957 16.2929 6.70711C16.4804 6.89464 16.7348 7 17 7ZM14 6C14.0026 5.6643 14.0361 5.32956 14.1 5H5C4.20435 5 3.44129 5.31607 2.87868 5.87868C2.31607 6.44129 2 7.20435 2 8V16C2 16.7956 2.31607 17.5587 2.87868 18.1213C3.44129 18.6839 4.20435 19 5 19H19C19.7956 19 20.5587 18.6839 21.1213 18.1213C21.6839 17.5587 22 16.7956 22 16V10C21.2572 10.5571 20.3738 10.8964 19.449 10.9798C18.5242 11.0632 17.5945 10.8874 16.7639 10.4721C15.9334 10.0569 15.2349 9.41854 14.7467 8.62866C14.2586 7.83878 14 6.92856 14 6ZM11 11C11 11.4465 10.9004 11.8874 10.7084 12.2905C10.5163 12.6936 10.2367 13.0487 9.89 13.33L11.45 14.11C11.6855 14.2299 11.864 14.4381 11.9465 14.6892C12.0289 14.9403 12.0086 15.2138 11.89 15.45C11.8069 15.6149 11.6798 15.7536 11.5227 15.8507C11.3656 15.9478 11.1847 15.9994 11 16C10.8431 16.0019 10.6883 15.964 10.55 15.89L6.55 13.89C6.3507 13.7879 6.19144 13.6219 6.09772 13.4185C6.004 13.2151 5.98125 12.9862 6.03312 12.7684C6.08499 12.5505 6.20846 12.3564 6.38377 12.2171C6.55908 12.0778 6.77608 12.0013 7 12H8C8.26522 12 8.51957 11.8946 8.70711 11.7071C8.89464 11.5196 9 11.2652 9 11C9 10.7348 8.89464 10.4804 8.70711 10.2929C8.51957 10.1054 8.26522 10 8 10H6C5.73478 10 5.48043 9.89464 5.29289 9.70711C5.10536 9.51957 5 9.26522 5 9C5 8.73478 5.10536 8.48043 5.29289 8.29289C5.48043 8.10536 5.73478 8 6 8H11C11.2652 8 11.5196 8.10536 11.7071 8.29289C11.8946 8.48043 12 8.73478 12 9C12 9.26522 11.8946 9.51957 11.7071 9.70711C11.5196 9.89464 11.2652 10 11 10H10.82C10.9364 10.3207 10.9973 10.6589 11 11Z" fill="var(--icon-medium)"/></svg>
-          </div>
-          <div class="rashi-cell-label">Finance</div>
-          <div class="rashi-cell-text">Stable outlook. Hold off on new commitments.</div>
-        </div>
-        <div class="rashi-cell">
-          <div class="rashi-cell-icon" style="background:var(--sparkle-20)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19.12 2.88C18.56 2.32 17.79 2 17 2H7C6.2 2 5.44 2.32 4.88 2.88C4.32 3.44 4 4.21 4 5V19C4 19.8 4.32 20.56 4.88 21.12C5.44 21.68 6.21 22 7 22H17C17.8 22 18.56 21.68 19.12 21.12C19.68 20.56 20 19.79 20 19V5C20 4.2 19.68 3.44 19.12 2.88ZM9.29 7.29C9.48 7.1 9.73 7 10 7H11V6C11 5.73 11.11 5.48 11.29 5.29C11.47 5.1 11.73 5 12 5C12.27 5 12.52 5.11 12.71 5.29C12.9 5.47 13 5.73 13 6V7H14C14.27 7 14.52 7.11 14.71 7.29C14.9 7.48 15 7.73 15 8C15 8.27 14.89 8.52 14.71 8.71C14.53 8.9 14.27 9 14 9H13V10C13 10.27 12.89 10.52 12.71 10.71C12.52 10.9 12.27 11 12 11C11.73 11 11.48 10.89 11.29 10.71C11.1 10.52 11 10.27 11 10V9H10C9.73 9 9.48 8.89 9.29 8.71C9.1 8.52 9 8.27 9 8C9 7.73 9.11 7.48 9.29 7.29ZM15.7 18.7C15.51 18.89 15.26 18.99 14.99 18.99H8.99C8.72 18.99 8.47 18.88 8.28 18.7C8.09 18.51 7.99 18.26 7.99 17.99C7.99 17.72 8.1 17.47 8.28 17.28C8.47 17.09 8.72 16.99 8.99 16.99H14.99C15.26 16.99 15.51 17.1 15.7 17.28C15.89 17.46 15.99 17.72 15.99 17.99C15.99 18.26 15.88 18.51 15.7 18.7ZM16.7 14.7C16.51 14.89 16.26 14.99 15.99 14.99H8C7.73 14.99 7.48 14.88 7.29 14.7C7.1 14.51 7 14.26 7 13.99C7 13.72 7.11 13.47 7.29 13.28C7.48 13.09 7.73 12.99 8 12.99H16C16.27 12.99 16.52 13.1 16.71 13.28C16.9 13.46 17 13.72 17 13.99C17 14.26 16.89 14.51 16.71 14.7H16.7Z" fill="var(--sparkle-50)"/></svg>
-          </div>
-          <div class="rashi-cell-label">Health</div>
-          <div class="rashi-cell-text">Good energy. A morning walk sets the right tone.</div>
         </div>
       </div>
 
-      <!-- Lucky strip -->
-      <div class="rashi-lucky">
-        <div class="rashi-lucky-item">
-          <div class="rashi-lucky-label">Colour</div>
-          <div class="rashi-lucky-value">
-            <span style="width:10px;height:10px;border-radius:50%;background:#3535f3;display:inline-block;border:1px solid rgba(0,0,0,0.08)"></span>
-            <span style="width:10px;height:10px;border-radius:50%;background:#3900ad;display:inline-block;border:1px solid rgba(0,0,0,0.08)"></span>
-            Blue
-          </div>
+      <!-- Key insights shown by default -->
+      <div class="kundali-special-hd">Today\'s key insights</div>
+      <div class="bullet-list">
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Saturn urges patience today</span></div>
+          <div class="bullet-item-body">Morning hours favour focused, disciplined work. Avoid rushed decisions before noon — Saturn\'s Hora is restrictive until 3 PM.</div>
         </div>
-        <div class="rashi-lucky-sep"></div>
-        <div class="rashi-lucky-item">
-          <div class="rashi-lucky-label">Time</div>
-          <div class="rashi-lucky-value">5–7 PM</div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Evening opens for meaningful conversations</span></div>
+          <div class="bullet-item-body">Venus influence peaks between 5–7 PM — ideal for personal relationships, expressing feelings and heartfelt talks.</div>
         </div>
-        <div class="rashi-lucky-sep"></div>
-        <div class="rashi-lucky-item">
-          <div class="rashi-lucky-label">Number</div>
-          <div class="rashi-lucky-value">3 &amp; 8</div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Remedy: Offer water to the Sun at sunrise</span></div>
+          <div class="bullet-item-body">Wearing blue or indigo today strengthens Saturn\'s positive influence on Kumbh Rashi and brings clarity.</div>
         </div>
-      </div>
-
-      <!-- Avoid + Remedy -->
-      <div class="rashi-notes">
-        <div class="rashi-note">
-          <div class="rashi-note-text">⚠️ Avoid hasty decisions, arguments &amp; signing agreements today.</div>
-        </div>
-        <div class="rashi-note">
-          <div class="rashi-note-text">🪔 Offer water to the Sun at sunrise &amp; wear blue today.</div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Avoid hasty decisions and agreements</span></div>
+          <div class="bullet-item-body">Do not sign contracts or make large financial commitments today. Pause, reflect and act tomorrow.</div>
         </div>
       </div>
 
-      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
-      <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">Want to go deeper into any area of your life?</p>
-      <div class="chips-row" style="margin:0">
-        <button class="chip" onclick="goToMarriageTiming()">Marriage Timing</button>
-        <button class="chip" onclick="goToCareerGuidance()">Career Guidance</button>
-        <button class="chip" onclick="goToWealth()">Wealth</button>
+      <!-- FOLD 1 -->
+      <div data-fold="rf1">
+        <div class="chips-row" style="margin:0;padding:8px 0">
+          <button class="chip" onclick="rashifalReveal(1)">More</button>
+        </div>
+        <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+        <p style="font-family:\'JioType\',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Want to go deeper into any area of your life?</p>
+        <div class="chips-row" style="margin:0;padding:8px 0">
+          <button class="chip" onclick="goToMarriageTiming()">Marriage Timing</button>
+          <button class="chip" onclick="goToCareerGuidance()">Career Guidance</button>
+          <button class="chip" onclick="goToWealth()">Wealth</button>
+        </div>
       </div>
 
     </div>`;
     messages.appendChild(botRow);
     scrollToBottom(messages);
+    _maybeShowKundaliPrompt(messages);
   }, 1400);
+}
+
+function rashifalReveal(section) {
+  const card = document.getElementById('rashifalCard');
+  if (!card) return;
+  const prevFold = card.querySelector('[data-fold="rf' + section + '"]');
+  if (prevFold) prevFold.remove();
+
+  const checkIcon = (sz) => `<svg width="${sz}" height="${sz}" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="10" cy="10" r="10" style="fill:var(--success)"/><path d="M6 10.3l2.6 2.6 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  const div = document.createElement('div');
+  div.style.animation = 'msgSlideIn 0.22s ease both';
+
+  if (section === 1) {
+    div.innerHTML = `
+      <div class="kundali-special-hd">Career &amp; Finance</div>
+      <div class="bullet-list">
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Career: Steady progress</span></div>
+          <div class="bullet-item-body">Avoid confrontations with seniors today. Focus on completing existing tasks — Saturn rewards diligence over ambition right now.</div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Finance: Stable, cautious outlook</span></div>
+          <div class="bullet-item-body">Hold off on new financial commitments. Review existing investments but avoid making new ones until Chandrashtama passes.</div>
+        </div>
+      </div>
+
+      <div class="kundali-special-hd" style="margin-top:4px">Love &amp; Health</div>
+      <div class="bullet-list">
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Love: Venus brings warmth</span></div>
+          <div class="bullet-item-body">Express what you\'ve been holding back — the evening hours are particularly auspicious for heartfelt conversations and emotional bonds.</div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Health: Good energy today</span></div>
+          <div class="bullet-item-body">A morning walk or light exercise sets the right tone. Avoid heavy meals after sunset and prioritise rest.</div>
+        </div>
+      </div>
+
+      <div data-fold="rf2">
+        <div class="chips-row" style="margin:0;padding:8px 0">
+          <button class="chip" onclick="rashifalReveal(2)">More</button>
+        </div>
+        <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+        <p style="font-family:\'JioType\',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Want to go deeper into any area of your life?</p>
+        <div class="chips-row" style="margin:0;padding:8px 0">
+          <button class="chip" onclick="goToMarriageTiming()">Marriage Timing</button>
+          <button class="chip" onclick="goToCareerGuidance()">Career Guidance</button>
+          <button class="chip" onclick="goToWealth()">Wealth</button>
+        </div>
+      </div>`;
+
+  } else if (section === 2) {
+    div.innerHTML = `
+      <div class="kundali-special-hd">Planetary influences today</div>
+      <div class="bullet-list">
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Shani (Saturn) — dominant influence</span></div>
+          <div class="bullet-item-body">Saturn governs Kumbh Rashi. Discipline, patience and long-term thinking are rewarded today. Shortcuts will backfire.</div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Moon in Vrishabh — emotional stability</span></div>
+          <div class="bullet-item-body">Moon in Taurus brings groundedness. Your emotional state is steady — but you may resist change today, so stay open.</div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Venus in Rohini — relationships highlighted</span></div>
+          <div class="bullet-item-body">Rohini Nakshatra is associated with beauty and attraction. Love matters are especially favoured in the evening hours.</div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Abhijit Muhurat: 12:05 PM – 12:53 PM</span></div>
+          <div class="bullet-item-body">The most universally auspicious window of the day. Use it for any important task, decision or new beginning.</div>
+        </div>
+      </div>
+
+      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Would you like to receive your Rashifal at a specific time every day?</p>
+      <div class="chips-row" style="margin:0;padding:8px 0">
+        <button class="chip" onclick="goToRashifalNotify('yes')">Yes, set a time</button>
+        <button class="chip" onclick="goToRashifalNotify('no')">No thanks</button>
+      </div>`;
+  }
+
+  card.appendChild(div);
+  const msgs = document.getElementById('askMessages');
+  if (msgs) scrollToBottom(msgs);
+}
+
+// ── Rashifal daily notification flow ──
+function goToRashifalNotify(answer) {
+  const messages = document.getElementById('askMessages');
+
+  // Show user bubble for the chip selection
+  const userRow = document.createElement('div');
+  userRow.className = 'msg-user-row';
+  userRow.style.animation = 'msgSlideIn 0.22s ease';
+  userRow.innerHTML = `<div class="msg-user"><p>${answer === 'yes' ? 'Yes, set a time' : 'No thanks'}</p></div>`;
+  messages.appendChild(userRow);
+  scrollToBottom(messages);
+
+  // Thinking indicator
+  const thinking = document.createElement('div');
+  thinking.className = 'msg-bot-row';
+  thinking.style.padding = '6px 0';
+  thinking.innerHTML = `<video width="32" height="32" autoplay loop muted playsinline style="border-radius:50%;flex-shrink:0;display:block"><source src="https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/states/Light/Thinking_state.mp4" type="video/mp4"></video>`;
+  messages.appendChild(thinking);
+  scrollToBottom(messages);
+
+  setTimeout(() => {
+    messages.removeChild(thinking);
+    const botRow = document.createElement('div');
+    botRow.className = 'msg-bot-row';
+    botRow.style.animation = 'msgSlideIn 0.22s ease';
+
+    if (answer === 'yes') {
+      botRow.innerHTML = `<div class="msg-bot">
+        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:0 0 4px">What time would you like to receive your daily Rashifal?</p>
+        <p style="font-family:'JioType',sans-serif;font-size:13px;font-weight:400;color:var(--text-low);line-height:1.3;margin:0">Type a time — like <strong style="font-weight:700;color:var(--text-high)">7:00 AM</strong> or <strong style="font-weight:700;color:var(--text-high)">8:30 PM</strong></p>
+      </div>`;
+      messages.appendChild(botRow);
+      scrollToBottom(messages);
+      // Activate the time-capture step
+      _kundaliStep = 'rashifalTime';
+      const placeholder = document.getElementById('chatPlaceholder');
+      if (placeholder) placeholder.textContent = 'Type a time, e.g. 7:00 AM…';
+      focusChatInput();
+    } else {
+      botRow.innerHTML = `<div class="msg-bot">
+        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:0 0 10px">No problem! Your Rashifal is always here whenever you want it.</p>
+        <div style="height:0.5px;background:var(--stroke-subtle);margin:0 0 10px"></div>
+        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:0 0 8px">Want to go deeper into any area of your life?</p>
+        <div class="chips-row" style="margin:0;padding:0">
+          <button class="chip" onclick="goToMarriageTiming()">Marriage Timing</button>
+          <button class="chip" onclick="goToCareerGuidance()">Career Guidance</button>
+          <button class="chip" onclick="goToWealth()">Wealth</button>
+        </div>
+      </div>`;
+      messages.appendChild(botRow);
+      scrollToBottom(messages);
+    }
+  }, 900);
 }
 
 /* ── Kundali upsell logic ── */
@@ -1496,8 +1748,7 @@ function _maybeShowKundaliPrompt(messages) {
       <div class="kundali-prompt">
         <div class="kundali-prompt-text">A Kundali chart would make these predictions much more specific to you. Would you like to create one?</div>
         <div class="kundali-btn-row">
-          <button class="kundali-btn-yes" onclick="kundaliYes()">Create Kundali <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="kundali-btn-later" onclick="kundaliLater()">Maybe later</button>
+          <button class="kundali-btn-yes" onclick="kundaliYes()">View Kundali <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
         <button class="kundali-btn-never" onclick="kundaliNever()">Don't ask again</button>
       </div>
@@ -1584,7 +1835,7 @@ function goToMarriageTiming() {
         <span class="astro-factor">Shukra Placement</span>
         <span class="astro-factor">Guru Drishti</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, 'Marriage Timing', 'Want to explore another area of your chart?', "Today's Rashifal");
 }
 
@@ -1600,7 +1851,7 @@ function goToCareerGuidance() {
         <span class="astro-factor">Jupiter 6th House</span>
         <span class="astro-factor">Dasha Period</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, 'Career Guidance', 'Want to explore another area of your chart?', "Today's Rashifal");
 }
 
@@ -1616,7 +1867,7 @@ function goToWealth() {
         <span class="astro-factor">Rahu 11th House</span>
         <span class="astro-factor">Dhan Yoga</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, 'Wealth', 'Want to explore another area of your chart?', "Today's Rashifal");
 }
 
@@ -1645,7 +1896,7 @@ function goToInsightMarriage() {
         <span class="astro-factor">Shukra Placement</span>
         <span class="astro-factor">Guru Drishti</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _insightChips('Marriage'), 'What else does your birth chart reveal?', 'Your Life Ahead');
 }
 
@@ -1661,7 +1912,7 @@ function goToInsightCareer() {
         <span class="astro-factor">Jupiter 6th House</span>
         <span class="astro-factor">Dasha Period</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _insightChips('Career'), 'What else does your birth chart reveal?', 'Your Life Ahead');
 }
 
@@ -1677,7 +1928,7 @@ function goToInsightJob() {
         <span class="astro-factor">Rahu Influence</span>
         <span class="astro-factor">Jupiter 10th Entry</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _insightChips('Job Change'), 'What else does your birth chart reveal?', 'Your Life Ahead');
 }
 
@@ -1693,7 +1944,7 @@ function goToInsightTravel() {
         <span class="astro-factor">Rahu 11th House</span>
         <span class="astro-factor">9th House Lord</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _insightChips('Travel Abroad'), 'What else does your birth chart reveal?', 'Your Life Ahead');
 }
 
@@ -1709,7 +1960,7 @@ function goToInsightHome() {
         <span class="astro-factor">Jupiter 4th Transit</span>
         <span class="astro-factor">Dhan Yoga</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _insightChips('Buy a Home'), 'What else does your birth chart reveal?', 'Your Life Ahead');
 }
 
@@ -1725,7 +1976,7 @@ function goToInsightLove() {
         <span class="astro-factor">Moon Placement</span>
         <span class="astro-factor">Navamsa Chart</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _insightChips('Love Life'), 'What else does your birth chart reveal?', 'Your Life Ahead');
 }
 
@@ -1809,15 +2060,17 @@ function goToJyotishTopic(topic) {
       : `<div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
          <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">This is a general reading. A Kundali would make it specific to you.</p>
          <div class="kundali-btn-row" style="padding-top:8px;padding-bottom:4px">
-           <button class="kundali-btn-yes" onclick="goToCreateKundaliForTopic('${topic}')">Create Kundali <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-           <button class="kundali-btn-later" onclick="goToJyotishBook('${topic}')">Maybe later</button>
+           <button class="kundali-btn-yes" onclick="goToCreateKundaliForTopic('${topic}')">View Kundali <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
          </div>
          <div style="display:flex;align-items:center;gap:5px;padding:4px 0 8px">
            <div style="width:20px;height:20px;border-radius:999px;background:#eeeeef;display:flex;align-items:center;justify-content:center;flex-shrink:0">
              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="#170054" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="#170054" stroke-width="2.5" stroke-linecap="round"/></svg>
            </div>
            <span style="font-family:'JioType',sans-serif;font-size:13px;font-weight:400;color:var(--text-high);line-height:1.3">Already have a Kundali? Tap the <strong style="font-weight:600;opacity:1">+</strong> icon in the chat bar to upload the file.</span>
-         </div>`;
+         </div>
+         <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+         <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">What else would you like to know?</p>
+         <div class="chips-row" style="margin:0;padding:8px 0">${remainingChips}</div>`;
     botRow.innerHTML = `<div class="msg-bot">
       <div class="pred-body">${pred}</div>
       ${footer}
@@ -1854,7 +2107,7 @@ function goToCreateKundaliForTopic(topic) {
 }
 
 function goToCreateKundali() {
-  const messages = _kundaliAddUserBubble('Create Kundali');
+  const messages = _kundaliAddUserBubble('View Kundali');
   _kundaliThinkingThen(messages, 900, () => {
     const botRow = document.createElement('div');
     botRow.className = 'msg-bot-row';
@@ -2002,6 +2255,28 @@ function _handleKundaliTime(time, messages) {
     return;
   }
   _kundaliTime = time;
+  _kundaliThinkingThen(messages, 800, () => {
+    const botRow = document.createElement('div');
+    botRow.className = 'msg-bot-row';
+    botRow.style.animation = 'msgSlideIn 0.22s ease';
+    botRow.innerHTML = `<div class="msg-bot">
+      <div class="pred-body">One last thing — which chart style would you like?</div>
+      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+      <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Choose your Kundali format</p>
+      <div class="chips-row" style="margin:0;padding:8px 0">
+        <button class="chip" onclick="goToKundaliChartStyle('north')">Uttar Bharatiya (उत्तर भारतीय)</button>
+        <button class="chip" onclick="goToKundaliChartStyle('south')">Dakshina Bharatiya (दक्षिण भारतीय)</button>
+      </div>
+    </div>`;
+    messages.appendChild(botRow);
+    scrollToBottom(messages);
+  });
+}
+
+function goToKundaliChartStyle(style) {
+  _kundaliChartStyle = style;
+  const label = style === 'north' ? 'Uttar Bharatiya (उत्तर भारतीय)' : 'Dakshina Bharatiya (दक्षिण भारतीय)';
+  const messages = _kundaliAddUserBubble(label);
   _kundaliThinkingThen(messages, 1200, () => {
     const botRow = document.createElement('div');
     botRow.className = 'msg-bot-row';
@@ -2019,19 +2294,77 @@ function _handleKundaliTime(time, messages) {
     scrollToBottom(messages);
     document.getElementById('chatPlaceholder').textContent = 'Ask me anything...';
 
-    // Start fill animation
     setTimeout(() => {
       const fill = document.getElementById('kundaliProgressFill');
       if (fill) fill.style.width = '100%';
     }, 60);
 
-    // Show Kundali after fill completes
     setTimeout(() => _showKundaliReady(messages), 3600);
   });
 }
 
+function _handleRashifalTime(time, messages) {
+  // Validate: must look like a time
+  if (!/\d{1,2}[:.]\d{2}|\d{1,2}\s*(am|pm)/i.test(time)) {
+    const errRow = document.createElement('div');
+    errRow.className = 'msg-bot-row';
+    errRow.style.animation = 'msgSlideIn 0.22s ease';
+    errRow.innerHTML = `<div class="msg-bot"><p style="font-family:'JioType',sans-serif;font-size:15px;font-weight:400;color:var(--text-high);line-height:1.3;margin:0">That doesn't look like a time — try something like <strong style="font-weight:700">7:00 AM</strong> or <strong style="font-weight:700">8:30 PM</strong>.</p></div>`;
+    messages.appendChild(errRow);
+    scrollToBottom(messages);
+    _kundaliStep = 'rashifalTime';
+    document.getElementById('chatPlaceholder').textContent = 'Type a time, e.g. 7:00 AM…';
+    focusChatInput();
+    return;
+  }
+
+  // Normalise time label
+  const timeLabel = time.toUpperCase().replace(/\./g, ':').trim();
+
+  // Thinking
+  const thinking = document.createElement('div');
+  thinking.className = 'msg-bot-row';
+  thinking.style.padding = '6px 0';
+  thinking.innerHTML = `<video width="32" height="32" autoplay loop muted playsinline style="border-radius:50%;flex-shrink:0;display:block"><source src="https://raw.githubusercontent.com/sunit1986/JioBharatIQ_Server/main/assets/states/Light/Thinking_state.mp4" type="video/mp4"></video>`;
+  messages.appendChild(thinking);
+  scrollToBottom(messages);
+
+  setTimeout(() => {
+    messages.removeChild(thinking);
+
+    // Show toast
+    showToast(`Rashifal set for ${timeLabel} every day`);
+
+    // Confirmation bot card
+    const botRow = document.createElement('div');
+    botRow.className = 'msg-bot-row';
+    botRow.style.animation = 'msgSlideIn 0.22s ease';
+    botRow.innerHTML = `<div class="msg-bot">
+      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:0 0 10px">Done! You'll receive your daily Rashifal at <strong style="font-weight:700">${timeLabel}</strong> every day.</p>
+      <div class="kundali-status-card" style="margin:0">
+        <div class="kundali-status-table">
+          <div class="kundali-status-row"><span class="kundali-status-label">Rashi</span><span class="kundali-status-value">Kumbh (Aquarius)</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Daily time</span><span class="kundali-status-value">${timeLabel}</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Starts from</span><span class="kundali-status-value">Tomorrow</span></div>
+        </div>
+      </div>
+      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:0 0 8px">Want to explore more?</p>
+      <div class="chips-row" style="margin:0;padding:0">
+        <button class="chip" onclick="goToMarriageTiming()">Marriage Timing</button>
+        <button class="chip" onclick="goToCareerGuidance()">Career Guidance</button>
+        <button class="chip" onclick="goToWealth()">Wealth</button>
+      </div>
+    </div>`;
+    messages.appendChild(botRow);
+    scrollToBottom(messages);
+
+    // Reset placeholder
+    document.getElementById('chatPlaceholder').textContent = 'Ask me anything...';
+  }, 900);
+}
+
 function _showKundaliReady(messages) {
-  // Remove progress message
   const prog = document.getElementById('kundaliProgressFill');
   if (prog) prog.closest('.msg-bot-row')?.remove();
 
@@ -2043,43 +2376,30 @@ function _showKundaliReady(messages) {
   const timeStr = _kundaliTime || '4:56 PM';
 
   const topicCtx = {
-    'Love & Relationships': {
-      question: 'You asked me about Love and marriage. What do you want to know?',
-      chips: ['Shaadi Kab?', 'Love or arrange?', 'My ideal life partner?']
-    },
-    'Career': {
-      question: 'You asked me about Career. What do you want to know?',
-      chips: ['Best time for promotion?', 'Career switch timing?', 'Business or job?']
-    },
-    'Money': {
-      question: 'You asked me about Money. What do you want to know?',
-      chips: ['Wealth period?', 'Best investment time?', 'Financial outlook 2026?']
-    },
-    'Health': {
-      question: 'You asked me about Health. What do you want to know?',
-      chips: ['Health challenges?', 'Energy cycles?', 'Best wellness window?']
-    },
-    'Home & Family': {
-      question: 'You asked me about Home and Family. What do you want to know?',
-      chips: ['Family harmony?', 'Moving homes?', 'Auspicious time?']
-    },
-    'Life & Future': {
-      question: 'What would you like to explore from your Kundali?',
-      chips: ['Major events 2026?', 'Life purpose?', "What's coming?"]
-    }
+    'Love & Relationships': { question: 'You asked me about Love and marriage. What do you want to know?', chips: ['Shaadi Kab?', 'Love or arrange?', 'My ideal life partner?'] },
+    'Career':               { question: 'You asked me about Career. What do you want to know?',            chips: ['Best time for promotion?', 'Career switch timing?', 'Business or job?'] },
+    'Money':                { question: 'You asked me about Money. What do you want to know?',             chips: ['Wealth period?', 'Best investment time?', 'Financial outlook 2026?'] },
+    'Health':               { question: 'You asked me about Health. What do you want to know?',            chips: ['Health challenges?', 'Energy cycles?', 'Best wellness window?'] },
+    'Home & Family':        { question: 'You asked me about Home and Family. What do you want to know?',   chips: ['Family harmony?', 'Moving homes?', 'Auspicious time?'] },
+    'Life & Future':        { question: 'What would you like to explore from your Kundali?',              chips: ['Major events 2026?', 'Life purpose?', "What's coming?"] }
   };
   const ctx = topicCtx[topic] || topicCtx['Life & Future'];
-  const chipsHtml = ctx.chips.map(c => `<button class="chip">${c}</button>`).join('') +
+  // Store for kundaliReveal to access later
+  window._krTopic = topic;
+  window._krCtx   = ctx;
+  window._krChips = ctx.chips.map(c => `<button class="chip">${c}</button>`).join('') +
     `<button class="chip" onclick="goToKundaliMoreOptions('${topic}')">More options</button>`;
-  const checkIcon = (sz) => `<svg width="${sz}" height="${sz}" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="10" cy="10" r="10" fill="#25AB21"/><path d="M6 10.3l2.6 2.6 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  const checkIcon = (sz) => `<svg width="${sz}" height="${sz}" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="10" cy="10" r="10" style="fill:var(--success)"/><path d="M6 10.3l2.6 2.6 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   const botRow = document.createElement('div');
   botRow.className = 'msg-bot-row';
   botRow.style.animation = 'msgSlideIn 0.22s ease';
-  botRow.innerHTML = `<div class="msg-bot">
+  botRow.innerHTML = `<div class="msg-bot" id="kundaliReadyCard">
 
     <div class="pred-body">Your Kundali is ready!</div>
 
+    <!-- Status card -->
     <div style="padding:8px 0">
       <div class="kundali-status-card">
         <div class="kundali-status-header">
@@ -2092,62 +2412,208 @@ function _showKundaliReady(messages) {
         </div>
         <div class="kundali-status-divider"></div>
         <div class="kundali-status-table">
-          <div class="kundali-status-row">
-            <span class="kundali-status-label">Lagna Rashi</span>
-            <span class="kundali-status-value">Kanya</span>
-          </div>
-          <div class="kundali-status-row">
-            <span class="kundali-status-label">Janma Rashi</span>
-            <span class="kundali-status-value">Vrishabh</span>
-          </div>
-          <div class="kundali-status-row">
-            <span class="kundali-status-label">Current Dasha</span>
-            <span class="kundali-status-value">Shukra</span>
-          </div>
-          <div class="kundali-status-row">
-            <span class="kundali-status-label">Life path No.</span>
-            <span class="kundali-status-value">3</span>
-          </div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Lagna Rashi</span><span class="kundali-status-value">Kanya (Virgo)</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Janma Rashi</span><span class="kundali-status-value">Vrishabh (Taurus)</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Janma Nakshatra</span><span class="kundali-status-value">Rohini, Pada 2</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Current Mahadasha</span><span class="kundali-status-value">Shukra (2023–2043)</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Current Antardasha</span><span class="kundali-status-value">Shukra–Shukra</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Yogas present</span><span class="kundali-status-value">4 (see below)</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Life path No.</span><span class="kundali-status-value">3</span></div>
         </div>
       </div>
     </div>
 
-    <div class="pred-body" style="display:flex;flex-direction:column;gap:8px">
-      <span style="font-weight:700">⭐️ Shukra is in your 9th house today</span>
-      <span>Abhijit Muhurat: 12:04–12:52 PM — auspicious for starting new ventures, rituals, or important meetings.</span>
+    <!-- Kundali chart SVG -->
+    <div style="padding:4px 0 8px">
+      <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:10px;display:block">
+        <defs>
+          <radialGradient id="kbg" cx="50%" cy="50%" r="72%">
+            <stop offset="0%" stop-color="#f8f5d8"/>
+            <stop offset="100%" stop-color="#e8e3c0"/>
+          </radialGradient>
+        </defs>
+        <rect width="300" height="240" fill="url(#kbg)" rx="6"/>
+        <rect x="1" y="1" width="298" height="238" fill="none" stroke="#8b5e2a" stroke-width="2"/>
+        <line x1="100" y1="0"   x2="100" y2="240" stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="200" y1="0"   x2="200" y2="240" stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="0"   y1="80"  x2="300" y2="80"  stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="0"   y1="160" x2="300" y2="160" stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="100" y1="0"   x2="0"   y2="80"  stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="200" y1="0"   x2="300" y2="80"  stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="0"   y1="160" x2="100" y2="240" stroke="#8b5e2a" stroke-width="1.5"/>
+        <line x1="300" y1="160" x2="200" y2="240" stroke="#8b5e2a" stroke-width="1.5"/>
+        <text x="150" y="17"  text-anchor="middle" fill="#7733cc" font-family="serif" font-size="10" font-weight="bold">ASC</text>
+        <text x="150" y="29"  text-anchor="middle" fill="#7733cc" font-family="serif" font-size="9"  font-weight="bold">1</text>
+        <text x="150" y="52"  text-anchor="middle" fill="#5a3510" font-family="serif" font-size="12" font-weight="bold">KeR</text>
+        <text x="56"  y="33"  text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">2</text>
+        <text x="20"  y="54"  text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">3</text>
+        <text x="30"  y="102" text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">4</text>
+        <text x="44"  y="126" text-anchor="middle" fill="#2255dd" font-family="serif" font-size="13" font-weight="bold">Mo</text>
+        <text x="19"  y="174" text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">5</text>
+        <text x="33"  y="200" text-anchor="middle" fill="#cc2222" font-family="serif" font-size="12" font-weight="bold">MaR</text>
+        <text x="66"  y="226" text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">6</text>
+        <text x="150" y="178" text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">7</text>
+        <text x="150" y="212" text-anchor="middle" fill="#3a2510" font-family="serif" font-size="12" font-weight="bold">RaR</text>
+        <text x="222" y="226" text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">8</text>
+        <text x="240" y="188" text-anchor="middle" fill="#cc9900" font-family="serif" font-size="11" font-weight="bold">Ju♦</text>
+        <text x="258" y="202" text-anchor="middle" fill="#3a1505" font-family="serif" font-size="11" font-weight="bold">Pl</text>
+        <text x="240" y="218" text-anchor="middle" fill="#dd1188" font-family="serif" font-size="11" font-weight="bold">Ve</text>
+        <text x="278" y="174" text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">9</text>
+        <text x="267" y="200" text-anchor="middle" fill="#7755dd" font-family="serif" font-size="11" font-weight="bold">Ne♦</text>
+        <text x="232" y="98"  text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">10</text>
+        <text x="226" y="114" text-anchor="middle" fill="#228822" font-family="serif" font-size="12" font-weight="bold">Me</text>
+        <text x="248" y="130" text-anchor="middle" fill="#cc6600" font-family="serif" font-size="12" font-weight="bold">Su</text>
+        <text x="226" y="146" text-anchor="middle" fill="#009999" font-family="serif" font-size="12" font-weight="bold">Ur♦</text>
+        <text x="271" y="35"  text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">11</text>
+        <text x="264" y="58"  text-anchor="middle" fill="#111188" font-family="serif" font-size="12" font-weight="bold">Sa♦</text>
+        <text x="232" y="33"  text-anchor="middle" fill="#2a7a6a" font-family="serif" font-size="10" font-weight="bold">12</text>
+      </svg>
     </div>
 
+    <!-- What's special - shown by default -->
     <div class="kundali-special-hd">⚡️ What's special in your Kundali</div>
-
     <div class="bullet-list">
       <div class="bullet-item">
-        <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Shukra Mahadasha</span></div>
-        <div class="bullet-item-body">a 20-year golden era (2023–2043) — rare planetary support for wealth, love and creativity.</div>
+        <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Shukra Mahadasha (2023–2043)</span></div>
+        <div class="bullet-item-body">A 20-year golden era — rare planetary support for wealth, love and creativity. You are in the middle of your most powerful life phase.</div>
       </div>
       <div class="bullet-item">
-        <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Guru in Kanya</span></div>
-        <div class="bullet-item-body">own sign (natal placement) — A lifelong yogkarak planet.</div>
+        <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Budha-Aditya Yoga</span></div>
+        <div class="bullet-item-body">Mercury conjunct Sun in the 10th house — exceptional intelligence, career recognition and public visibility. A yoga of leaders and communicators.</div>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Guru in Kanya (own sign)</span></div>
+        <div class="bullet-item-body">A lifelong yogkarak placement — wisdom, dharma and good fortune are permanent pillars of your chart.</div>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Shani in 11th house</span></div>
+        <div class="bullet-item-body">Disciplined gains — wealth and networks built slowly but with extraordinary durability. After 2027, Saturn rewards your patience handsomely.</div>
       </div>
       <div class="bullet-item">
         <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">Personal Year Number 8 (2026)</span></div>
-        <div class="bullet-item-body">A year of material success, recognition and financial milestones.</div>
+        <div class="bullet-item-body">A year of material success, recognition and financial milestones — the numerological green light aligns with your planetary timing.</div>
       </div>
     </div>
 
-    <div style="padding:8px 0">
-      <button class="kundali-btn-yes" style="width:100%;flex:none">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M12 3v13M7 11l5 5 5-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
-        Download Detailed Kundali
-      </button>
+    <!-- FOLD 1 -->
+    <div data-fold="1">
+      <div class="chips-row" style="margin:0;padding:8px 0">
+        <button class="chip" onclick="kundaliReveal(1)">More</button>
+      </div>
+      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Your birth chart is ready. What do the planets say about you today?</p>
+      <div class="chips-row" style="margin:0;padding:8px 0">
+        ${window._krChips}
+      </div>
     </div>
-
-    <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
-    <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">${ctx.question}</p>
-    <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>
 
   </div>`;
   messages.appendChild(botRow);
   scrollToBottom(messages);
+}
+
+function kundaliReveal(section) {
+  const card = document.getElementById('kundaliReadyCard');
+  if (!card) return;
+  const prevFold = card.querySelector('[data-fold="' + section + '"]');
+  if (prevFold) prevFold.remove();
+
+  const checkIcon = (sz) => `<svg width="${sz}" height="${sz}" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="10" cy="10" r="10" style="fill:var(--success)"/><path d="M6 10.3l2.6 2.6 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  const div = document.createElement('div');
+  div.style.animation = 'msgSlideIn 0.22s ease both';
+
+  if (section === 1) {
+    const planets = [
+      { name: 'Surya (Sun)',     sign: 'Meena',    house: '10th', note: 'Career & status' },
+      { name: 'Chandra (Moon)',  sign: 'Vrishabh', house: '4th',  note: 'Home & mind' },
+      { name: 'Mangal (Mars)',   sign: 'Simha',    house: '5th',  note: 'Retrograde ℞' },
+      { name: 'Budha (Mercury)', sign: 'Kumbh',    house: '10th', note: 'Career & speech' },
+      { name: 'Guru (Jupiter)',  sign: 'Makara',   house: '8th',  note: 'Hidden gains' },
+      { name: 'Shukra (Venus)',  sign: 'Makara',   house: '8th',  note: 'Deep bonds' },
+      { name: 'Shani (Saturn)',  sign: 'Vrishabh', house: '11th', note: 'Steady gains' },
+      { name: 'Rahu',            sign: 'Meena',    house: '7th',  note: 'Retrograde ℞' },
+      { name: 'Ketu',            sign: 'Kanya',    house: '1st',  note: 'Retrograde ℞' },
+    ];
+    div.innerHTML = `
+      <div class="kundali-special-hd">🪐 Planetary positions</div>
+      <div class="bullet-list">
+        ${planets.map(r => `
+          <div class="bullet-item">
+            <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">${r.name}</span></div>
+            <div class="bullet-item-body">${r.sign} · House ${r.house} · ${r.note}</div>
+          </div>`).join('')}
+      </div>
+
+      <div class="kundali-special-hd" style="margin-top:4px">🔮 Key yogas in your chart</div>
+      <div class="bullet-list">
+        ${[
+          { name: 'Budha-Aditya Yoga', desc: 'Sun + Mercury in 10th — intelligence, career fame and public recognition.' },
+          { name: 'Shukra Mahadasha Yoga', desc: 'Venus rules your chart and is running Mahadasha — wealth, beauty and love are amplified for 20 years.' },
+          { name: 'Shani-Chandra Yoga', desc: 'Saturn aspects Moon — a mind that is persistent, disciplined and emotionally deep.' },
+          { name: 'Ketu in Lagna', desc: 'Spiritual detachment and past-life wisdom — intuition is one of your greatest natural gifts.' },
+        ].map(y => `
+          <div class="bullet-item">
+            <div class="bullet-item-row">${checkIcon(20)}<span class="bullet-item-title">${y.name}</span></div>
+            <div class="bullet-item-body">${y.desc}</div>
+          </div>`).join('')}
+      </div>
+
+      <div data-fold="2">
+        <div class="chips-row" style="margin:0;padding:8px 0">
+          <button class="chip" onclick="kundaliReveal(2)">More</button>
+        </div>
+        <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+        <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">See your Dasha timeline — the roadmap of what's coming.</p>
+        <div class="chips-row" style="margin:0;padding:8px 0">
+          ${window._krChips}
+        </div>
+      </div>`;
+
+  } else if (section === 2) {
+    const topic     = window._krTopic || 'Life & Future';
+    const ctx       = window._krCtx   || { question: 'What would you like to explore from your Kundali?' };
+    const chipsHtml = window._krChips || `<button class="chip" onclick="goToKundaliMoreOptions('${topic}')">More options</button>`;
+    const dashas = [
+      { period: 'Shukra – Shukra',  dates: 'Apr 2023 – Jun 2026', current: true  },
+      { period: 'Shukra – Surya',   dates: 'Jun 2026 – Jun 2027', current: false },
+      { period: 'Shukra – Chandra', dates: 'Jun 2027 – Feb 2029', current: false },
+      { period: 'Shukra – Mangal',  dates: 'Feb 2029 – Apr 2030', current: false },
+      { period: 'Shukra – Rahu',    dates: 'Apr 2030 – Apr 2033', current: false },
+      { period: 'Shukra – Guru',    dates: 'Apr 2033 – Apr 2037', current: false },
+    ];
+    div.innerHTML = `
+      <p class="muharat-section-title">Dasha timeline · Shukra Mahadasha 2023–2043</p>
+      <div class="muharat-list">
+        ${dashas.map(r => `
+          <div class="muharat-row">
+            <div class="muharat-date">
+              <span class="muharat-month">${r.dates.split(' ')[0]}</span>
+              <span class="muharat-day">${r.dates.split(' ')[1]}</span>
+            </div>
+            <div class="muharat-details">
+              <span class="muharat-time">${r.period}</span>
+              <span class="muharat-quality">${r.dates}</span>
+            </div>
+            ${r.current ? `<span class="muharat-badge" style="background:var(--primary-20);color:var(--primary-50);font-size:11px;font-weight:700;padding:3px 8px;white-space:nowrap;flex-shrink:0;align-self:center">Active</span>` : ''}
+          </div>`).join('')}
+      </div>
+
+      <div style="padding:4px 0 8px">
+        <button class="kundali-btn-yes" style="width:100%;flex:none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M12 3v13M7 11l5 5 5-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          Download Detailed Kundali
+        </button>
+      </div>
+
+      <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
+      <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">${ctx.question}</p>
+      <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>`;
+  }
+
+  card.appendChild(div);
+  const msgs = document.getElementById('askMessages');
+  if (msgs) scrollToBottom(msgs);
 }
 
 function goToKundaliMoreOptions(currentTopic) {
@@ -2388,15 +2854,14 @@ function goToMuharatResult(event) {
         <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
         <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">This is a general reading. A Kundali would make it specific to you.</p>
         <div class="kundali-btn-row" style="padding-top:8px;padding-bottom:4px">
-          <button class="kundali-btn-yes" onclick="_kundaliTopic='${event}';goToCreateKundali()">Create Kundali <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="kundali-btn-later" onclick="this.closest('.muharat-kundali-upsell').style.display='none';goToMuharatEventChips('${event}', true)">Maybe later</button>
+          <button class="kundali-btn-yes" onclick="_kundaliTopic='${event}';goToCreateKundali()">View Kundali <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
         <p style="font-family:'JioType',sans-serif;font-size:13px;font-weight:400;color:var(--text-high);line-height:1.3;margin:4px 0 8px">Already have a Kundali? Tap the <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#eeeeef;vertical-align:middle;margin:0 1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="#170054" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="#170054" stroke-width="2.5" stroke-linecap="round"/></svg></span> in the chat bar to upload the file.</p>
       </div>`;
-    const chipsFooter = _kundaliCreated ? `
+    const chipsFooter = `
       <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
       <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">Looking for a Muhurat for a different event?</p>
-      <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>` : '';
+      <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>`;
     botRow.innerHTML = `<div class="msg-bot">
       <div class="pred-body">${data.intro}</div>
       <p class="muharat-section-title">${data.title}</p>
@@ -2457,15 +2922,14 @@ function goToMuharatWhy(event) {
         <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
         <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">This is a general reading. A Kundali would make it specific to you.</p>
         <div class="kundali-btn-row" style="padding-top:8px;padding-bottom:4px">
-          <button class="kundali-btn-yes" onclick="_kundaliTopic='${event}';goToCreateKundali()">Create Kundali <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="kundali-btn-later" onclick="this.closest('.muharat-kundali-upsell').style.display='none';goToMuharatEventChips('${event}', false)">Maybe later</button>
+          <button class="kundali-btn-yes" onclick="_kundaliTopic='${event}';goToCreateKundali()">View Kundali <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
         <p style="font-family:'JioType',sans-serif;font-size:13px;font-weight:400;color:var(--text-high);line-height:1.3;margin:4px 0 8px">Already have a Kundali? Tap the <span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#eeeeef;vertical-align:middle;margin:0 1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="#170054" stroke-width="2.5" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="#170054" stroke-width="2.5" stroke-linecap="round"/></svg></span> in the chat bar to upload the file.</p>
       </div>`;
-    const whyChipsFooter = _kundaliCreated ? `
+    const whyChipsFooter = `
       <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
       <p style="font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;letter-spacing:0;margin:8px 0">Looking for a Muhurat for a different event?</p>
-      <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>` : '';
+      <div class="chips-row" style="margin:0;padding:8px 0">${chipsHtml}</div>`;
     botRow.innerHTML = `<div class="msg-bot">
       <div class="pred-body">Let's break it down simply.</div>
       <p class="muharat-section-title">${data.title}</p>
@@ -2503,7 +2967,7 @@ function goToTodayCareer() {
         <span class="astro-factor">Mercury Retrograde</span>
         <span class="astro-factor">Daily Nakshatra</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _todayChips('Career'), 'How are other areas of your day looking?', 'How Is Today Looking?');
 }
 
@@ -2519,7 +2983,7 @@ function goToTodayLove() {
         <span class="astro-factor">Daily Transit</span>
         <span class="astro-factor">Nakshatra of the Day</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _todayChips('Love & Relationships'), 'How are other areas of your day looking?', 'How Is Today Looking?');
 }
 
@@ -2535,7 +2999,7 @@ function goToTodayFinance() {
         <span class="astro-factor">Daily Transit</span>
         <span class="astro-factor">Dhan Bhava</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _todayChips('Finance'), 'How are other areas of your day looking?', 'How Is Today Looking?');
 }
 
@@ -2551,7 +3015,7 @@ function goToTodayHealth() {
         <span class="astro-factor">Daily Transit</span>
         <span class="astro-factor">Ayurvedic Calendar</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _todayChips('Health'), 'How are other areas of your day looking?', 'How Is Today Looking?');
 }
 
@@ -2567,7 +3031,7 @@ function goToTodayFamily() {
         <span class="astro-factor">Daily Transit</span>
         <span class="astro-factor">Panchanga Reading</span>
       </div>
-      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" fill="#25AB21"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
+      <div class="astro-reviewer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="6" style="fill:var(--success)"/><path d="M3.5 6.2l1.6 1.6 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reviewed by - Pt. Anil Sharma, 22 yrs</div>
     </div>`, _todayChips('Family'), 'How are other areas of your day looking?', 'How Is Today Looking?');
 }
 
