@@ -1396,7 +1396,7 @@ function goToShubhMuharatMoreOptions() {
   const userRow = document.createElement('div');
   userRow.className = 'msg-user-row';
   userRow.style.animation = 'msgSlideIn 0.22s ease';
-  userRow.innerHTML = `<div class="msg-user"><p>More options</p></div>`;
+  userRow.innerHTML = `<div class="msg-user"><p>Read more options</p></div>`;
   messages.appendChild(userRow);
   scrollToBottom(messages);
 
@@ -1627,7 +1627,7 @@ function goToRashifal() {
       <!-- FOLD 1 -->
       <div data-fold="rf1">
         <div class="chips-row" style="margin:0;padding:8px 0">
-          <button class="chip" onclick="rashifalReveal(1)">More</button>
+          <button class="chip" onclick="rashifalReveal(1)">Read more</button>
         </div>
         <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
         <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Want to go deeper into any area of your life?</p>
@@ -1684,7 +1684,7 @@ function rashifalReveal(section) {
 
       <div data-fold="rf2">
         <div class="chips-row" style="margin:0;padding:8px 0">
-          <button class="chip" onclick="rashifalReveal(2)">More</button>
+          <button class="chip" onclick="rashifalReveal(2)">Read more</button>
         </div>
         <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
         <p style="font-family:\'JioType\',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Want to go deeper into any area of your life?</p>
@@ -2447,7 +2447,7 @@ function _showKundaliReady(messages) {
   window._krTopic = topic;
   window._krCtx   = ctx;
   window._krChips = ctx.chips.map(c => `<button class="chip">${c}</button>`).join('') +
-    `<button class="chip" onclick="goToKundaliMoreOptions('${topic}')">More options</button>`;
+    `<button class="chip" onclick="goToKundaliMoreOptions('${topic}')">Read more options</button>`;
 
   const checkIcon = (sz) => `<svg width="${sz}" height="${sz}" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="10" cy="10" r="10" style="fill:var(--success)"/><path d="M6 10.3l2.6 2.6 5-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
@@ -2557,7 +2557,7 @@ function _showKundaliReady(messages) {
     <!-- FOLD 1 -->
     <div data-fold="1">
       <div class="chips-row" style="margin:0;padding:8px 0">
-        <button class="chip" onclick="kundaliReveal(1)">More</button>
+        <button class="chip" onclick="kundaliReveal(1)">Read more</button>
       </div>
       <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
       <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Your birth chart is ready. What do the planets say about you today?</p>
@@ -2620,7 +2620,7 @@ function kundaliReveal(section) {
 
       <div data-fold="2">
         <div class="chips-row" style="margin:0;padding:8px 0">
-          <button class="chip" onclick="kundaliReveal(2)">More</button>
+          <button class="chip" onclick="kundaliReveal(2)">Read more</button>
         </div>
         <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
         <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">See your Dasha timeline — the roadmap of what's coming.</p>
@@ -2632,7 +2632,7 @@ function kundaliReveal(section) {
   } else if (section === 2) {
     const topic     = window._krTopic || 'Life & Future';
     const ctx       = window._krCtx   || { question: 'What would you like to explore from your Kundali?' };
-    const chipsHtml = window._krChips || `<button class="chip" onclick="goToKundaliMoreOptions('${topic}')">More options</button>`;
+    const chipsHtml = window._krChips || `<button class="chip" onclick="goToKundaliMoreOptions('${topic}')">Read more options</button>`;
     const dashas = [
       { period: 'Shukra – Shukra',  dates: 'Apr 2023 – Jun 2026', current: true  },
       { period: 'Shukra – Surya',   dates: 'Jun 2026 – Jun 2027', current: false },
@@ -2680,7 +2680,7 @@ function goToKundaliMoreOptions(currentTopic) {
   const userRow = document.createElement('div');
   userRow.className = 'msg-user-row';
   userRow.style.animation = 'msgSlideIn 0.22s ease';
-  userRow.innerHTML = `<div class="msg-user"><p>More options</p></div>`;
+  userRow.innerHTML = `<div class="msg-user"><p>Read more options</p></div>`;
   messages.appendChild(userRow);
   scrollToBottom(messages);
 
@@ -3108,7 +3108,7 @@ function _showMkResult(messages) {
     <!-- FOLD 1 -->
     <div data-fold="mk1">
       <div class="chips-row" style="margin:0;padding:8px 0">
-        <button class="chip" onclick="mkReveal(1)">More</button>
+        <button class="chip" onclick="mkReveal(1)">Read more</button>
       </div>
       <div style="height:0.5px;background:var(--stroke-subtle);margin:12px 0 10px"></div>
       <p style="font-family:'JioType',sans-serif;font-size:16px;font-weight:400;color:var(--text-high);line-height:1.3;margin:8px 0">Want to explore your compatibility further?</p>
