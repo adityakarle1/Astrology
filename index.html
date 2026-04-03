@@ -1090,6 +1090,9 @@ let _kundaliTime      = null;  // time of birth typed by user
 let _kundaliChartStyle = null; // 'north' | 'south'
 let _kundaliCreated   = false; // true once kundali has been generated
 
+// ── Jyotish flow state ──
+let _jyotishCurrentTopic = null; // topic active when user taps + to upload
+
 // ── Match Kundali state ──
 let _mkForSelf = true;   // true = user vs someone; false = two other people
 let _mk1Name  = null;    // Person 1 (only used when _mkForSelf=false)
@@ -1142,8 +1145,9 @@ function handleChatAttachment() {
   const step = _kundaliStep || '';
   if (step.startsWith('mk')) {
     goToMkUploadKundali();
+  } else if (step === 'jyotish') {
+    goToJyotishSimulateUpload();
   }
-  // other contexts: no-op for now
 }
 
 function focusChatInput() {
@@ -2159,6 +2163,10 @@ function goToJyotishTopic(topic) {
     </div>`;
     messages.appendChild(botRow);
     scrollToReveal(messages, botRow);
+    if (!_kundaliCreated) {
+      _jyotishCurrentTopic = topic;
+      _kundaliStep = 'jyotish';
+    }
   }, 1200);
 }
 
@@ -3012,6 +3020,38 @@ function goToMkPerson2() {
 
 function goToMkUploadKundali() {
   goToMkSimulateUpload(null);
+}
+
+function goToJyotishSimulateUpload() {
+  _kundaliStep = null;
+  const messages = document.getElementById('askMessages');
+  _kundaliThinkingThen(messages, 1800, () => {
+    const mockName  = 'Priya';
+    const mockDob   = '14 March 1995';
+    const mockPlace = 'Pune';
+    const mockTime  = '8:15 AM';
+    const topic = _jyotishCurrentTopic || 'Life & Future';
+    const botRow = document.createElement('div');
+    botRow.className = 'msg-bot-row msg-bot-response';
+    botRow.style.animation = 'msgSlideIn 0.22s ease';
+    botRow.innerHTML = `${BOT_AVATAR}<div class="msg-bot">
+      <div class="pred-body">I found the following details for you:</div>
+      <div class="kundali-status-card" style="margin:4px 0 8px">
+        <div class="kundali-status-table">
+          <div class="kundali-status-row"><span class="kundali-status-label">Name</span><span class="kundali-status-value">${escapeHtml(mockName)}</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Date of birth</span><span class="kundali-status-value">${escapeHtml(mockDob)}</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Time of birth</span><span class="kundali-status-value">${escapeHtml(mockTime)}</span></div>
+          <div class="kundali-status-row"><span class="kundali-status-label">Place of birth</span><span class="kundali-status-value">${escapeHtml(mockPlace)}</span></div>
+        </div>
+      </div>
+      <div class="chips-row" style="margin:0;padding:8px 0">
+        <button class="chip" onclick="goToCreateKundaliForTopic('${escapeHtml(topic)}')">Yes, looks correct</button>
+        <button class="chip" onclick="goToCreateKundali()">Enter manually instead</button>
+      </div>
+    </div>`;
+    messages.appendChild(botRow);
+    scrollToReveal(messages, botRow);
+  }, 'Extracting details…');
 }
 
 function goToMkSimulateUploadFromIcon() {
